@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_adding_item_text_field.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_reminder_date.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_add.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_check.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_reminder_outlined.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/selector_ic_note.xml" value="0.1859375" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/selector_ic_reminder.xml" value="0.1859375" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/selector_ic_settings.xml" value="0.1859375" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/selector_navigation_menu_color.xml" value="0.19010416666666666" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/activity_add_item.xml" value="0.15462962962962962" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/activity_add_note.xml" value="0.15462962962962962" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_add_note.xml" value="0.15462962962962962" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_add_reminder.xml" value="0.22" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_notes.xml" value="0.16666666666666666" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_reminders.xml" value="0.17395833333333333" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_settings.xml" value="0.17395833333333333" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/item_notes.xml" value="0.3333333333333333" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/item_reminders.xml" value="0.15462962962962962" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/item_reminders_horizontal.xml" value="0.15462962962962962" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.16979166666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

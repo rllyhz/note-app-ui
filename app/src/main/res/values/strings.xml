@@ -1,0 +1,33 @@
+<resources>
+   <string name="app_name">Me App</string>
+   <string name="bottom_nav_menu_notes">Notes</string>
+   <string name="bottom_nav_menu_reminders">Reminders</string>
+   <string name="bottom_nav_menu_settings">Settings</string>
+
+   <string name="action_bar_title_notes">Notes</string>
+   <string name="action_bar_title_reminders">Reminders</string>
+   <string name="action_bar_title_settings">Settings</string>
+   <string name="action_bar_add_note">Create Note</string>
+   <string name="action_bar_add_reminder">Schedule Reminder</string>
+
+   <string name="add_reminders_tooltip_text">Add reminders</string>
+   <string name="add_notes_tooltip_text">Add notes</string>
+   <string name="go_back_button_tooltip_text">Go Back button</string>
+   <string name="save_note_tooltip_text">Create Note button</string>
+   <string name="save_reminder_tooltip_text">Schedule Reminder button</string>
+
+   <string name="reminders_pinned_label">Pinned</string>
+   <string name="reminders_upcoming_label">Upcoming</string>
+
+   <string name="content_hint">Typing</string>
+   <string name="title_hint">Give it a Title</string>
+   <string name="description_hint">Set description</string>
+   <string name="schedule_on_label">Will be scheduled on : </string>
+   <string name="pick_a_time_label">Pick a time</string>
+   <string name="time_dummy_data">Sat, 12 2021 —:—</string>
+
+   <string name="successfully_added_note_message">Note successfully added</string>
+   <string name="failed_to_add_note_message">Note successfully added</string>
+   <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
+   <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
+</resources>

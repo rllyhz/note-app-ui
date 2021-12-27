@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:id="@+id/cv_item_reminders"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"
+   android:layout_marginHorizontal="8dp"
+   android:layout_marginBottom="12dp"
+   android:clickable="true"
+   android:focusable="true"
+   app:cardBackgroundColor="@color/soft_blue"
+   app:cardCornerRadius="8dp"
+   app:cardElevation="0dp">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:padding="12dp">
+
+      <TextView
+         android:id="@+id/tv_item_reminders_title"
+         style="@style/TextAppearance.AppCompat.Title"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         tools:text="Title" />
+
+      <TextView
+         android:id="@+id/tv_item_reminders_description"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="8dp"
+         android:ellipsize="end"
+         android:maxLines="6"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/tv_item_reminders_title"
+         tools:text="@tools:sample/lorem/random" />
+
+      <TextView
+         android:id="@+id/tv_item_reminders_notifying_at"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="14dp"
+         android:background="@drawable/bg_reminder_date"
+         android:drawablePadding="6dp"
+         android:padding="8dp"
+         android:textColor="@color/grey"
+         app:drawableEndCompat="@drawable/ic_reminder_outlined"
+         app:drawableTint="@color/grey"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/tv_item_reminders_description"
+         tools:text="Sep 2, 2021" />
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

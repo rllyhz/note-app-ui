@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+   <style name="HeadingStyle" parent="TextAppearance.AppCompat.Title">
+      <item name="android:textSize">24sp</item>
+   </style>
+
+   <style name="TextFieldStyle" parent="Widget.AppCompat.EditText">
+      <item name="android:background">@drawable/bg_adding_item_text_field</item>
+      <item name="android:inputType">textMultiLine</item>
+      <item name="android:gravity">start</item>
+   </style>
+
+   <style name="TextFieldTitleStyle" parent="TextFieldStyle">
+      <item name="android:maxLength">50</item>
+      <item name="maxLines">3</item>
+      <item name="android:hint">@string/title_hint</item>
+      <item name="android:ems">3</item>
+   </style>
+
+   <style name="TextFieldContentStyle" parent="TextFieldStyle">
+      <item name="maxLines">20</item>
+      <item name="android:ems">20</item>
+      <item name="android:hint">@string/content_hint</item>
+   </style>
+
+   <style name="TextFieldDescriptionStyle" parent="TextFieldStyle">
+      <item name="maxLines">10</item>
+      <item name="android:maxLength">150</item>
+      <item name="android:ems">5</item>
+      <item name="android:hint">@string/description_hint</item>
+   </style>
+
+   <style name="ExploreSearchView" parent="Widget.AppCompat.Light.SearchView">
+      <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+      <item name="commitIcon">@null</item>
+      <item name="goIcon">@null</item>
+      <item name="searchHintIcon">@null</item>
+   </style>
+</resources>
