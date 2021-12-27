@@ -6,7 +6,7 @@
   Notes Page
 </h3>
 <p align="center">
-    <img src="screenshots/notes.jpg"
+    <img src="screenshots/notes.png"
         alt="Notes Page"
         width="200" />
 </p>
@@ -15,7 +15,7 @@
   Reminders Page
 </h3>
 <p align="center">
-    <img src="screenshots/reminders.jpg"
+    <img src="screenshots/reminders.png"
         alt="Reminders Page"
         width="200" />
 </p>
