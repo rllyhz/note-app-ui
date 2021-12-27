@@ -2,5 +2,5 @@
 
 ### Preview
 
-[images](screenshots/notes.png)
-[images](screenshots/reminders.png)
+![Notes Page Preview](screenshots/notes.png)
+![Reminders Page Preview](screenshots/reminders.png)
