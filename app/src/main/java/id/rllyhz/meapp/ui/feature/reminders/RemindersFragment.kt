@@ -55,7 +55,7 @@ class RemindersFragment : Fragment(), RemindersAdapter.ReminderItemClickCallback
     }
 
     private fun setupUI() {
-        binding.apply {
+        with(binding) {
 
             btnAddReminder.setOnClickListener {
                 Intent(requireActivity(), AddItemActivity::class.java).also {

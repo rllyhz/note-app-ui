@@ -1,10 +1,13 @@
 package id.rllyhz.meapp.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Reminder
 import id.rllyhz.meapp.databinding.ItemRemindersBinding
 import id.rllyhz.meapp.utils.ColorHelper
@@ -13,6 +16,8 @@ import id.rllyhz.meapp.utils.formattedNotifyingAt
 class RemindersAdapter :
     ListAdapter<Reminder, RemindersAdapter.RemindersViewHolder>(RemindersComparator()) {
 
+    private var lastPosition: Int = -1
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RemindersViewHolder {
         val binding =
             ItemRemindersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -20,9 +25,27 @@ class RemindersAdapter :
     }
 
     override fun onBindViewHolder(holder: RemindersViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        if (currentItem != null)
-            holder.bind(currentItem)
+        getItem(position)?.let {
+            holder.bind(it)
+            setAnimationToItemView(holder.itemView, position)
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: RemindersViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.clearAnimation()
+    }
+
+    private fun setAnimationToItemView(itemView: View, position: Int) {
+        if (position > lastPosition) {
+            val animation =
+                AnimationUtils.loadAnimation(
+                    itemView.context.applicationContext,
+                    R.anim.fade_in_and_scale_up
+                )
+            itemView.startAnimation(animation)
+            lastPosition = position
+        }
     }
 
     // view holder
@@ -41,6 +64,10 @@ class RemindersAdapter :
                     callback?.onReminderClick(reminder)
                 }
             }
+        }
+
+        fun clearAnimation() {
+            itemView.clearAnimation()
         }
     }
 

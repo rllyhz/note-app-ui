@@ -5,16 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import id.rllyhz.meapp.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.rllyhz.meapp.adapters.NotesAdapter
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.FragmentNotesBinding
 import id.rllyhz.meapp.ui.adding_item.AddItemActivity
-import id.rllyhz.meapp.utils.show
 
 class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
     private var _binding: FragmentNotesBinding? = null
@@ -22,6 +23,8 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
 
     private val viewModel: NotesViewModel by viewModels()
     private var notesAdapter: NotesAdapter? = null
+
+    private var bottomSheetBehaviorNotes: BottomSheetBehavior<ConstraintLayout>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,22 +53,70 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
         notesAdapter = null
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        bottomSheetBehaviorNotes = null
+        bottomSheetCallback = null
+        deletingAlert = null
+    }
+
     private fun setupUI() {
-        binding.apply {
+        with(binding) {
+            deletingAlert = AlertDialog.Builder(requireContext())
+                .setTitle("Deleting Note")
+                .setMessage("Are you sure want to delete this item?")
+                .setCancelable(true)
+                .setNegativeButton("Cancel") { _, _ ->
+                    Toast.makeText(requireContext(), "Cancelling dialog", Toast.LENGTH_SHORT).show()
+                    deletingAlert?.cancel()
+                }
+                .setPositiveButton("Yes") { _, _ ->
+                    viewModel.selectedNote.value?.let {
+                        Toast.makeText(
+                            requireContext(),
+                            "Deleted item ${it.id}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    deletingAlert?.cancel()
+                }
+                .create()
+
+            bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {
+                    when (newState) {
+                        BottomSheetBehavior.STATE_EXPANDED -> {
+                            //
+                        }
+                        BottomSheetBehavior.STATE_COLLAPSED -> {
+                            fabNotesAdd.animate().scaleX(1f).scaleY(1f)
+                                .setDuration(150).start()
+                        }
+                        else -> Unit
+                    }
+                }
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {}
+            }
+
+            bottomSheetBehaviorNotes = BottomSheetBehavior.from(bottomSheetContainerNotes)
+            bottomSheetCallback?.let {
+                bottomSheetBehaviorNotes?.addBottomSheetCallback(it)
+            }
+
+            btnCloseBottomSheetNotes.setOnClickListener {
+                bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+            btnDeleteBottomSheetNotes.setOnClickListener {
+                deletingAlert?.show()
+                bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
 
             fabNotesAdd.setOnClickListener {
                 Intent(requireActivity(), AddItemActivity::class.java).also {
                     it.putExtra(AddItemActivity.DESTINATION_PAGE, AddItemActivity.ADDING_NOTES_PAGE)
                     startActivity(it)
-                }
-            }
-
-            swipeRefreshNotes.let {
-                it.setColorSchemeColors(
-                    ContextCompat.getColor(requireContext(), R.color.blue),
-                )
-                it.setOnRefreshListener {
-                    viewModel.reloadAllNotes()
                 }
             }
 
@@ -77,12 +128,24 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
 
             viewModel.getAllNotes().observe(requireActivity()) {
                 notesAdapter?.submitList(it)
-                swipeRefreshNotes.show(false)
             }
         }
     }
 
     override fun onNoteClick(note: Note) {
-        //
+        with(binding) {
+            fabNotesAdd.animate().scaleX(0f).scaleY(0f)
+                .setDuration(150).start()
+
+            tvNoteTitleBottomSheetNotes.text = note.title
+            tvNoteContentBottomSheetNotes.text = note.content
+        }
+
+        viewModel.setSelectedNote(note)
+        bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_EXPANDED
     }
+
+    private var bottomSheetCallback: BottomSheetBehavior.BottomSheetCallback? = null
+
+    private var deletingAlert: AlertDialog? = null
 }

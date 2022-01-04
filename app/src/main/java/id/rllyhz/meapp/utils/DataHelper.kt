@@ -14,7 +14,7 @@ object DataHelper {
         notes.add(Note(1, "test 1", "lorem ipsum", Date().time, Date().time))
         notes.add(
             Note(
-                1,
+                2,
                 "test 2",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 Date().time,
@@ -23,7 +23,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                3,
                 "note 1",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 Date().time,
@@ -32,7 +32,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                4,
                 "note 2",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
                 Date().time,
@@ -41,7 +41,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                5,
                 "test 3",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 Date().time,
@@ -50,7 +50,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                6,
                 "test 4",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
                 Date().time,
@@ -59,7 +59,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                7,
                 "note 3",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 Date().time,
@@ -68,7 +68,7 @@ object DataHelper {
         )
         notes.add(
             Note(
-                1,
+                8,
                 "note 4",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 Date().time,
@@ -129,13 +129,19 @@ object DataHelper {
 
 @SuppressLint("SimpleDateFormat")
 private fun convertLongToDateString(time: Long): String = Date(time).run {
-    val date = Date(time)
-    val format = SimpleDateFormat("MMM dd, yyyy")
+    SimpleDateFormat("MMM dd, yyyy").format(this)
+}
 
-    format.format(date)
+@SuppressLint("SimpleDateFormat")
+private fun convertLongToTimeString(time: Long): String = Date(time).run {
+    SimpleDateFormat("HH:mm").format(this)
 }
 
 fun Note.formattedUpdatedAt(): String = convertLongToDateString(updatedAt)
+
+fun Date.toDateString(): String = convertLongToDateString(time)
+
+fun Date.toTimeString(): String = convertLongToTimeString(time)
 
 fun Reminder.formattedNotifyingAt(): String = convertLongToDateString(notifyingAt)
 

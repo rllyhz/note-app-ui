@@ -22,6 +22,12 @@ object ColorHelper {
                 color = R.color.soft_grey
             }
             R.color.soft_grey -> {
+                color = R.color.soft_pink_2
+            }
+            R.color.soft_pink_2 -> {
+                color = R.color.soft_purple
+            }
+            R.color.soft_purple -> {
                 color = R.color.soft_blue
             }
         }

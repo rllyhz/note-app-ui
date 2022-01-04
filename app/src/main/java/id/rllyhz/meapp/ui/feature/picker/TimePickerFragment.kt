@@ -30,7 +30,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
             val minute = it.get(Calendar.MINUTE)
             val isFormat24Hour = true
 
-            return TimePickerDialog(activity, this, hour, minute, isFormat24Hour)
+            TimePickerDialog(activity, this, hour, minute, isFormat24Hour)
         }
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {

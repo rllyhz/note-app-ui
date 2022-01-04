@@ -10,11 +10,13 @@ class AddItemSharedViewModel : ViewModel() {
     private var _titleText = MutableLiveData<String>()
     private var _contentText = MutableLiveData<String>()
     private var _descriptionText = MutableLiveData<String>()
+    private var _isDailyNotification = MutableLiveData<Boolean>()
 
     val selectedTime: LiveData<Date> get() = _selectedTime
     val titleText: LiveData<String> get() = _titleText
     val contentText: LiveData<String> get() = _contentText
     val descriptionText: LiveData<String> get() = _descriptionText
+    val isDailyNotifications: LiveData<Boolean> get() = _isDailyNotification
 
     fun setSelectedTime(date: Date) {
         _selectedTime.value = date
@@ -30,5 +32,9 @@ class AddItemSharedViewModel : ViewModel() {
 
     fun setDescriptionItem(description: String) {
         _descriptionText.value = description
+    }
+
+    fun isDailyNotifications(notifyDaily: Boolean) {
+        _isDailyNotification.value = notifyDaily
     }
 }

@@ -8,13 +8,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentAddReminderBinding
 import id.rllyhz.meapp.ui.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.feature.picker.DatePickerFragment
 import id.rllyhz.meapp.ui.feature.picker.TimePickerFragment
-import java.text.SimpleDateFormat
-import java.util.*
+import id.rllyhz.meapp.utils.hide
+import id.rllyhz.meapp.utils.show
+import id.rllyhz.meapp.utils.toDateString
+import id.rllyhz.meapp.utils.toTimeString
 
 class AddReminderFragment : Fragment() {
     private var _binding: FragmentAddReminderBinding? = null
@@ -51,6 +55,7 @@ class AddReminderFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        _binding = null
         titleTextWatcher = null
         descriptionTextWatcher = null
     }
@@ -80,6 +85,15 @@ class AddReminderFragment : Fragment() {
         setupUI()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        with(binding) {
+            etTitleAddingReminder.removeTextChangedListener(titleTextWatcher)
+            etDescriptionAddingReminder.removeTextChangedListener(titleTextWatcher)
+        }
+    }
+
     private fun setupUI() {
         binding.apply {
             etTitleAddingReminder.addTextChangedListener(titleTextWatcher)
@@ -98,6 +112,30 @@ class AddReminderFragment : Fragment() {
                 requireActivity().finish()
             }
 
+            switchDailyNotificationsAddingReminder.setOnCheckedChangeListener { _, isChecked ->
+                activity?.sharedViewModel?.isDailyNotifications(isChecked)
+
+                if (isChecked) {
+                    llPickATimeAddingReminder.show()
+                    tvScheduleOnLabelAddingReminder.hide()
+                    llPickADateAddingReminder.hide()
+                } else {
+                    llPickATimeAddingReminder.hide()
+                    tvScheduleOnLabelAddingReminder.show()
+                    llPickADateAddingReminder.show()
+                }
+            }
+
+            llContainerDailyNotificationsAddingReminder.setOnClickListener {
+                switchDailyNotificationsAddingReminder.run {
+                    isChecked = !isChecked
+                }
+            }
+
+            llPickADateAddingReminder.setOnClickListener {
+                DatePickerFragment().show(requireActivity().supportFragmentManager, DATE_PICKER_TAG)
+            }
+
             llPickATimeAddingReminder.setOnClickListener {
                 TimePickerFragment().show(requireActivity().supportFragmentManager, TIME_PICKER_TAG)
             }
@@ -107,16 +145,24 @@ class AddReminderFragment : Fragment() {
                 etDescriptionAddingReminder.setText(descriptionText.value)
 
                 selectedTime.observe(requireActivity()) { date ->
-                    if (date != null) {
-                        val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-                        tvPickATimeLabelAddingReminder.text = dateFormat.format(date)
+                    date?.let {
+                        if (llPickADateAddingReminder.isVisible) {
+                            tvPickADateLabelAddingReminder.text = date.toDateString()
+                        } else {
+                            tvPickATimeLabelAddingReminder.text = date.toTimeString()
+                        }
                     }
+                }
+
+                isDailyNotifications.observe(requireActivity()) {
+                    switchDailyNotificationsAddingReminder.isChecked = it
                 }
             }
         }
     }
 
     companion object {
+        private const val DATE_PICKER_TAG = "DatePickerOnce"
         private const val TIME_PICKER_TAG = "TimePickerOnce"
     }
 }

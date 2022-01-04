@@ -7,10 +7,12 @@ import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.ui.feature.add_note.AddNoteFragment
 import id.rllyhz.meapp.ui.feature.add_reminder.AddReminderFragment
+import id.rllyhz.meapp.ui.feature.picker.DatePickerFragment
 import id.rllyhz.meapp.ui.feature.picker.TimePickerFragment
 import java.util.*
 
-class AddItemActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListener {
+class AddItemActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener,
+    TimePickerFragment.DialogTimeListener {
     val sharedViewModel: AddItemSharedViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,15 @@ class AddItemActivity : AppCompatActivity(), TimePickerFragment.DialogTimeListen
         val calendar = Calendar.getInstance().apply {
             set(Calendar.HOUR_OF_DAY, hourOfDay)
             set(Calendar.MINUTE, minute)
+        }
+        sharedViewModel.setSelectedTime(calendar.time)
+    }
+
+    override fun onDialogDateSet(tag: String?, year: Int, month: Int, dayOfMonth: Int) {
+        val calendar = Calendar.getInstance().apply {
+            set(Calendar.YEAR, year)
+            set(Calendar.MONTH, month)
+            set(Calendar.DAY_OF_MONTH, dayOfMonth)
         }
         sharedViewModel.setSelectedTime(calendar.time)
     }

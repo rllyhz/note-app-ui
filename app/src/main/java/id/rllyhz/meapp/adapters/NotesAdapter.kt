@@ -1,16 +1,20 @@
 package id.rllyhz.meapp.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.ItemNotesBinding
 import id.rllyhz.meapp.utils.ColorHelper
 import id.rllyhz.meapp.utils.formattedUpdatedAt
 
 class NotesAdapter : ListAdapter<Note, NotesAdapter.NotesViewHolder>(NotesComparator()) {
+    private var lastPosition: Int = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         val binding = ItemNotesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -18,9 +22,27 @@ class NotesAdapter : ListAdapter<Note, NotesAdapter.NotesViewHolder>(NotesCompar
     }
 
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
-        val currentItem = getItem(position)
-        if (currentItem != null)
-            holder.bind(currentItem)
+        getItem(position)?.let {
+            holder.bind(it)
+            setAnimationToItemView(holder.itemView, position)
+        }
+    }
+
+    override fun onViewDetachedFromWindow(holder: NotesViewHolder) {
+        super.onViewDetachedFromWindow(holder)
+        holder.clearAnimation()
+    }
+
+    private fun setAnimationToItemView(itemView: View, position: Int) {
+        if (position > lastPosition) {
+            val animation =
+                AnimationUtils.loadAnimation(
+                    itemView.context.applicationContext,
+                    R.anim.fade_in_and_slide_in_top
+                )
+            itemView.startAnimation(animation)
+            lastPosition = position
+        }
     }
 
     // viewholder
@@ -39,6 +61,10 @@ class NotesAdapter : ListAdapter<Note, NotesAdapter.NotesViewHolder>(NotesCompar
                     callback?.onNoteClick(note)
                 }
             }
+        }
+
+        fun clearAnimation() {
+            itemView.clearAnimation()
         }
     }
 
