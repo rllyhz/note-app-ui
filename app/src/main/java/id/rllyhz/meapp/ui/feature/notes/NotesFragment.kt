@@ -2,20 +2,29 @@ package id.rllyhz.meapp.ui.feature.notes
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import id.rllyhz.meapp.R
 import id.rllyhz.meapp.adapters.NotesAdapter
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.FragmentNotesBinding
 import id.rllyhz.meapp.ui.adding_item.AddItemActivity
+import id.rllyhz.meapp.utils.hide
+import id.rllyhz.meapp.utils.show
 
 class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
     private var _binding: FragmentNotesBinding? = null
@@ -58,19 +67,25 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
         bottomSheetBehaviorNotes = null
         bottomSheetCallback = null
         deletingAlert = null
+        searchTextWatcher = null
+
+        with(binding) {
+            svNotes.clearAnimation()
+            rvNotes.clearAnimation()
+        }
     }
 
     private fun setupUI() {
         with(binding) {
             deletingAlert = AlertDialog.Builder(requireContext())
-                .setTitle("Deleting Note")
-                .setMessage("Are you sure want to delete this item?")
+                .setTitle(getString(R.string.dialog_title_deleting_notes))
+                .setMessage(getString(R.string.dialog_message_deleting_notes))
                 .setCancelable(true)
-                .setNegativeButton("Cancel") { _, _ ->
+                .setNegativeButton(getString(R.string.negative_button_label_deleting_notes)) { _, _ ->
                     Toast.makeText(requireContext(), "Cancelling dialog", Toast.LENGTH_SHORT).show()
                     deletingAlert?.cancel()
                 }
-                .setPositiveButton("Yes") { _, _ ->
+                .setPositiveButton(getString(R.string.positive_button_label_deleting_notes)) { _, _ ->
                     viewModel.selectedNote.value?.let {
                         Toast.makeText(
                             requireContext(),
@@ -82,6 +97,16 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                     deletingAlert?.cancel()
                 }
                 .create()
+
+            searchTextWatcher = object : TextWatcher {
+                override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+                override fun onTextChanged(newQuery: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                    viewModel.setSearchQuery(newQuery.toString())
+                }
+
+                override fun afterTextChanged(p0: Editable?) {}
+            }
 
             bottomSheetCallback = object : BottomSheetBehavior.BottomSheetCallback() {
                 override fun onStateChanged(bottomSheet: View, newState: Int) {
@@ -113,6 +138,25 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
             }
 
+            svNotes.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.fade_in_and_scale_up
+                )
+            )
+            svNotes.addTextChangedListener(searchTextWatcher)
+            svNotes.setOnEditorActionListener { _, actionId, keyEvent ->
+                if (actionId == EditorInfo.IME_ACTION_SEARCH || (keyEvent.action == KeyEvent.ACTION_DOWN && keyEvent.keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    with(viewModel) {
+                        performSearchingNotes()
+                        setSearchQuery("")
+                        svNotes.text.clear()
+                    }
+                }
+
+                true
+            }
+
             fabNotesAdd.setOnClickListener {
                 Intent(requireActivity(), AddItemActivity::class.java).also {
                     it.putExtra(AddItemActivity.DESTINATION_PAGE, AddItemActivity.ADDING_NOTES_PAGE)
@@ -125,21 +169,45 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
                 adapter = notesAdapter
             }
+            rvNotes.startAnimation(
+                AnimationUtils.loadAnimation(
+                    requireContext(),
+                    R.anim.fade_in_and_scale_up
+                )
+            )
 
-            viewModel.getAllNotes().observe(requireActivity()) {
-                notesAdapter?.submitList(it)
+            with(viewModel) {
+                allNotes.observe(requireActivity()) {
+                    notesAdapter?.submitList(it)
+                }
+
+                selectedNote.observe(requireActivity()) { note ->
+                    tvNoteTitleBottomSheetNotes.text = note.title
+                    tvNoteContentBottomSheetNotes.text = note.content
+                }
+
+                shouldLoadingState.asLiveData().observe(requireActivity()) {
+                    showLoading(it)
+                }
+            }
+        }
+    }
+
+    private fun showLoading(state: Boolean) {
+        with(binding) {
+            if (state) {
+                progressbarNotes.show()
+                rvNotes.hide()
+            } else {
+                progressbarNotes.hide()
+                rvNotes.show()
             }
         }
     }
 
     override fun onNoteClick(note: Note) {
-        with(binding) {
-            fabNotesAdd.animate().scaleX(0f).scaleY(0f)
-                .setDuration(150).start()
-
-            tvNoteTitleBottomSheetNotes.text = note.title
-            tvNoteContentBottomSheetNotes.text = note.content
-        }
+        binding.fabNotesAdd.animate().scaleX(0f).scaleY(0f)
+            .setDuration(150).start()
 
         viewModel.setSelectedNote(note)
         bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_EXPANDED
@@ -148,4 +216,6 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
     private var bottomSheetCallback: BottomSheetBehavior.BottomSheetCallback? = null
 
     private var deletingAlert: AlertDialog? = null
+
+    private var searchTextWatcher: TextWatcher? = null
 }

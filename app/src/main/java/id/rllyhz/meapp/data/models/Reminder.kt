@@ -8,6 +8,7 @@ data class Reminder(
     val id: Long,
     val title: String,
     val description: String,
+    val isDailyReminder: Boolean,
     val notifyingAt: Long,
     val createdAt: Long,
     val updatedAt: Long

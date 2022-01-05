@@ -3,6 +3,7 @@ package id.rllyhz.meapp.utils
 import android.annotation.SuppressLint
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.data.models.Reminder
+import id.rllyhz.meapp.vo.ImportantLevel
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -11,12 +12,13 @@ object DataHelper {
     fun getAllNotes(): List<Note> {
         val notes = ArrayList<Note>()
 
-        notes.add(Note(1, "test 1", "lorem ipsum", Date().time, Date().time))
+        notes.add(Note(1, "test 1", "lorem ipsum", ImportantLevel.NORMAL, Date().time, Date().time))
         notes.add(
             Note(
                 2,
                 "test 2",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                ImportantLevel.NORMAL,
                 Date().time,
                 Date().time
             )
@@ -26,6 +28,7 @@ object DataHelper {
                 3,
                 "note 1",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                ImportantLevel.NORMAL,
                 Date().time,
                 Date().time
             )
@@ -35,6 +38,7 @@ object DataHelper {
                 4,
                 "note 2",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
+                ImportantLevel.IMPORTANT,
                 Date().time,
                 Date().time
             )
@@ -44,6 +48,7 @@ object DataHelper {
                 5,
                 "test 3",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                ImportantLevel.VERY_IMPORTANT,
                 Date().time,
                 Date().time
             )
@@ -53,6 +58,7 @@ object DataHelper {
                 6,
                 "test 4",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
+                ImportantLevel.VERY_IMPORTANT,
                 Date().time,
                 Date().time
             )
@@ -62,6 +68,7 @@ object DataHelper {
                 7,
                 "note 3",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                ImportantLevel.NORMAL,
                 Date().time,
                 Date().time
             )
@@ -71,6 +78,7 @@ object DataHelper {
                 8,
                 "note 4",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                ImportantLevel.NORMAL,
                 Date().time,
                 Date().time
             )
@@ -87,6 +95,7 @@ object DataHelper {
                 1,
                 "reminder 1",
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                false,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
@@ -97,6 +106,7 @@ object DataHelper {
                 1,
                 "reminder 2",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
+                false,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
@@ -107,6 +117,7 @@ object DataHelper {
                 1,
                 "reminder 3",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                false,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
@@ -117,6 +128,7 @@ object DataHelper {
                 1,
                 "reminder 4",
                 "ut aliquip ex ea commodo consequat.",
+                false,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis

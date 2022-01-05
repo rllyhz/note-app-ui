@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_adding_item_text_field.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_bottom_sheet_detail.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_card_profile.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_reminder_date.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_rounded_transparent.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_add.xml" value="0.16898148148148148" />
@@ -12,6 +13,9 @@
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_delete.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_reminder_outlined.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ic_search.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/icon_arrow_back.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/icon_close.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/icon_time.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ripple_effects.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/ripple_effects_with_rounded_transparent_bg.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/selector_bg_search_notes.xml" value="0.16898148148148148" />

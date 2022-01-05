@@ -37,4 +37,13 @@
    <string name="daily_notifications_label">Daily Notifications</string>
    <string name="daily_notifications_description_label">Will notify the reminder daily</string>
    <string name="pick_a_date_label">Pick a date</string>
+   <string name="background_content_description">Background Content Description</string>
+   <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
+   <string name="profile_job_dummy_data">Mobile Engineer</string>
+   <string name="btn_delete_label">Delete</string>
+   <string name="content_description_add_reminders_button">Add Reminders Button</string>
+   <string name="dialog_title_deleting_notes">Deleting Note</string>
+   <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
+   <string name="negative_button_label_deleting_notes">Cancel</string>
+   <string name="positive_button_label_deleting_notes">Yes</string>
 </resources>

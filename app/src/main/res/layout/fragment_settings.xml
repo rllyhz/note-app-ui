@@ -1,17 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
    xmlns:app="http://schemas.android.com/apk/res-auto"
    android:layout_width="match_parent"
    android:layout_height="match_parent">
 
-   <TextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="Settings"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+   <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+      <ImageView
+         android:id="@+id/iv_bg_profile"
+         android:layout_width="0dp"
+         android:layout_height="280dp"
+         android:contentDescription="@string/background_content_description"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:srcCompat="@drawable/bg_card_profile" />
+
+      <com.google.android.material.imageview.ShapeableImageView
+         android:id="@+id/siv_profile_pic_settings"
+         android:layout_width="120dp"
+         android:layout_height="120dp"
+         android:layout_marginTop="46dp"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         app:shapeAppearanceOverlay="@style/RoundedImageStyle"
+         app:srcCompat="@drawable/profile" />
+
+      <TextView
+         android:id="@+id/tv_profile_name_settings"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textColor="@color/soft_black"
+         android:layout_marginTop="32dp"
+         android:text="@string/profile_name_dummy_data"
+         android:textAppearance="@style/TextAppearance.AppCompat.Title"
+         app:layout_constraintLeft_toLeftOf="@id/siv_profile_pic_settings"
+         app:layout_constraintRight_toRightOf="@id/siv_profile_pic_settings"
+         app:layout_constraintTop_toBottomOf="@id/siv_profile_pic_settings" />
+
+      <TextView
+         android:id="@+id/tv_profile_job_settings"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="@string/profile_job_dummy_data"
+         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+         android:textColor="@color/grey"
+         app:layout_constraintLeft_toLeftOf="@id/tv_profile_name_settings"
+         app:layout_constraintRight_toRightOf="@id/tv_profile_name_settings"
+         app:layout_constraintTop_toBottomOf="@id/tv_profile_name_settings" />
+
+      <com.google.android.material.card.MaterialCardView
+         android:id="@+id/card_bg_1"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_marginHorizontal="12dp"
+         android:layout_marginTop="32dp"
+         android:padding="8dp"
+         app:cardBackgroundColor="@color/soft_blue"
+         app:cardCornerRadius="8dp"
+         app:cardUseCompatPadding="true"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/iv_bg_profile">
+
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="12dp">
+
+            <TextView
+               android:layout_width="wrap_content"
+               android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+               android:layout_height="wrap_content"
+               android:text="Hello semuanya"
+               android:textColor="@color/grey" />
+
+         </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+      <com.google.android.material.card.MaterialCardView
+         android:id="@+id/card_bg_2"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_marginHorizontal="12dp"
+         android:padding="8dp"
+         app:cardBackgroundColor="@color/soft_orange"
+         app:cardCornerRadius="8dp"
+         app:cardUseCompatPadding="true"
+         app:layout_constraintLeft_toLeftOf="parent"
+         app:layout_constraintRight_toRightOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/card_bg_1">
+
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="24dp">
+
+            <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Hello semuanya"
+               android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+               android:textColor="@color/grey" />
+
+         </LinearLayout>
+
+      </com.google.android.material.card.MaterialCardView>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

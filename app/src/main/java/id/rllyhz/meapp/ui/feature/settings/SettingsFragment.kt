@@ -34,7 +34,35 @@ class SettingsFragment : Fragment() {
         _binding = null
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        with(binding) {
+            cardBg1.clearAnimation()
+            cardBg2.clearAnimation()
+        }
+    }
+
     private fun setupUI() {
-        //
+        with(binding) {
+            cardBg1.run {
+                alpha = 0f
+
+                animate()
+                    .alphaBy(1f)
+                    .setDuration(750)
+                    .start()
+            }
+
+            cardBg2.run {
+                alpha = 0f
+
+                animate()
+                    .alphaBy(1f)
+                    .setDuration(750)
+                    .setStartDelay(200)
+                    .start()
+            }
+        }
     }
 }

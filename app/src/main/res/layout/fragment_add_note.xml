@@ -11,9 +11,9 @@
       android:layout_margin="8dp"
       android:background="@drawable/ripple_effects"
       android:contentDescription="@string/go_back_button_tooltip_text"
-      android:src="@drawable/ic_arrow_left"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/icon_arrow_back" />
 
    <TextView
       style="@style/HeadingStyle"
@@ -25,14 +25,14 @@
       app:layout_constraintLeft_toRightOf="@id/btn_go_back_adding_note"
       app:layout_constraintTop_toTopOf="@id/btn_go_back_adding_note" />
 
-   <ImageView
+   <Button
       android:id="@+id/btn_save_adding_note"
-      android:layout_width="32dp"
-      android:layout_height="32dp"
+      style="@style/ButtonWithIconOnlyStyle"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:layout_margin="8dp"
-      android:background="@drawable/ripple_effects"
       android:contentDescription="@string/save_note_tooltip_text"
-      android:src="@drawable/ic_check"
+      app:icon="@drawable/icon_check"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
