@@ -10,18 +10,21 @@
       android:supportsRtl="true"
       android:theme="@style/Theme.MeApp">
       <activity
-         android:name=".ui.adding_item.AddItemActivity"
-         android:exported="false" />
-      <activity
-         android:name=".ui.main.MainActivity"
-         android:exported="true"
-         android:windowSoftInputMode="adjustPan">
+         android:name=".ui.landing.LandingActivity"
+         android:exported="true">
          <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
          </intent-filter>
       </activity>
+      <activity
+         android:name=".ui.adding_item.AddItemActivity"
+         android:exported="true" />
+      <activity
+         android:name=".ui.main.MainActivity"
+         android:exported="true"
+         android:windowSoftInputMode="adjustPan" />
    </application>
 
 </manifest>
