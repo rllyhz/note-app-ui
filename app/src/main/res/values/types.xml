@@ -36,7 +36,7 @@
       <item name="android:background">@drawable/bg_search_notes</item>
       <item name="android:hint">Search Notes</item>
       <item name="android:inputType">text</item>
-      <item name="android:drawableEnd">@drawable/ic_search</item>
+      <item name="android:drawableEnd">@drawable/icon_search</item>
       <item name="android:imeOptions">actionSearch</item>
    </style>
 

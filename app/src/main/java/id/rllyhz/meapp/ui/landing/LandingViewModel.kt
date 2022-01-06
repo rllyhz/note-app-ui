@@ -32,7 +32,22 @@ class LandingViewModel : ViewModel() {
                 AppPreferences(name, jobName, shouldShowOnBoarding)
             }
 
-    fun setUserPreferencesByKey(context: Context, key: Preferences.Key<String>, value: String) =
+    fun setUserPreferencesByStringKey(
+        context: Context,
+        key: Preferences.Key<String>,
+        value: String
+    ) =
+        viewModelScope.launch(Dispatchers.IO) {
+            context.dataStore.edit { prefs ->
+                prefs[key] = value
+            }
+        }
+
+    fun setUserPreferencesByBooleanKey(
+        context: Context,
+        key: Preferences.Key<Boolean>,
+        value: Boolean
+    ) =
         viewModelScope.launch(Dispatchers.IO) {
             context.dataStore.edit { prefs ->
                 prefs[key] = value

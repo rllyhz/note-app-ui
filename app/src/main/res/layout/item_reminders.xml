@@ -48,6 +48,7 @@
          android:layout_marginTop="14dp"
          android:background="@drawable/bg_reminder_date"
          android:drawablePadding="6dp"
+         android:gravity="center"
          android:padding="8dp"
          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
          android:textColor="@color/grey"

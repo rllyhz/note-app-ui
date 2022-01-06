@@ -33,10 +33,10 @@
          android:id="@+id/tv_profile_name_settings"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:textColor="@color/soft_black"
          android:layout_marginTop="32dp"
          android:text="@string/profile_name_dummy_data"
          android:textAppearance="@style/TextAppearance.AppCompat.Title"
+         android:textColor="@color/soft_black"
          app:layout_constraintLeft_toLeftOf="@id/siv_profile_pic_settings"
          app:layout_constraintRight_toRightOf="@id/siv_profile_pic_settings"
          app:layout_constraintTop_toBottomOf="@id/siv_profile_pic_settings" />
@@ -73,9 +73,9 @@
 
             <TextView
                android:layout_width="wrap_content"
-               android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                android:layout_height="wrap_content"
                android:text="Hello semuanya"
+               android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                android:textColor="@color/grey" />
 
          </LinearLayout>
