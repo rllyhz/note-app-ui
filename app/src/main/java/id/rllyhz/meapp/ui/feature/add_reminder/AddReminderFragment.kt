@@ -7,6 +7,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -28,6 +30,9 @@ class AddReminderFragment : Fragment() {
     private var descriptionTextWatcher: TextWatcher? = null
 
     private var activity: AddItemActivity? = null
+
+    private var spinnerAdapter: ArrayAdapter<String>? = null
+    private var spinnerItemSelectedListener: AdapterView.OnItemSelectedListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +56,24 @@ class AddReminderFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {}
         }
+
+        spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            resources.getStringArray(R.array.level_of_importance_keys)
+        ).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
+
+        spinnerItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+                //
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                //
+            }
+        }
     }
 
     override fun onDestroy() {
@@ -58,6 +81,8 @@ class AddReminderFragment : Fragment() {
         _binding = null
         titleTextWatcher = null
         descriptionTextWatcher = null
+        spinnerAdapter = null
+        spinnerItemSelectedListener = null
     }
 
     override fun onAttach(context: Context) {
@@ -91,6 +116,8 @@ class AddReminderFragment : Fragment() {
         with(binding) {
             etTitleAddingReminder.removeTextChangedListener(titleTextWatcher)
             etDescriptionAddingReminder.removeTextChangedListener(titleTextWatcher)
+            spinnerLevelOfImportanceAddingReminder.adapter = null
+            spinnerLevelOfImportanceAddingReminder.onItemSelectedListener = null
         }
     }
 
@@ -118,11 +145,11 @@ class AddReminderFragment : Fragment() {
                 if (isChecked) {
                     llPickATimeAddingReminder.show()
                     tvScheduleOnLabelAddingReminder.hide()
-                    llPickADateAddingReminder.hide()
+                    rlContainerScheduleOnAddingReminder.hide()
                 } else {
                     llPickATimeAddingReminder.hide()
                     tvScheduleOnLabelAddingReminder.show()
-                    llPickADateAddingReminder.show()
+                    rlContainerScheduleOnAddingReminder.show()
                 }
             }
 
@@ -138,6 +165,12 @@ class AddReminderFragment : Fragment() {
 
             llPickATimeAddingReminder.setOnClickListener {
                 TimePickerFragment().show(requireActivity().supportFragmentManager, TIME_PICKER_TAG)
+            }
+
+            with(spinnerLevelOfImportanceAddingReminder) {
+                onItemSelectedListener = spinnerItemSelectedListener
+                adapter = spinnerAdapter
+                setSelection(1)
             }
 
             activity?.sharedViewModel?.apply {
