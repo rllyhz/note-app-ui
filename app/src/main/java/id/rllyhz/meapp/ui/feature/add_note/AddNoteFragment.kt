@@ -7,6 +7,8 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
@@ -21,6 +23,9 @@ class AddNoteFragment : Fragment() {
     private var contentTextWatcher: TextWatcher? = null
 
     private var activity: AddItemActivity? = null
+
+    private var spinnerAdapter: ArrayAdapter<String>? = null
+    private var spinnerItemSelectedListener: AdapterView.OnItemSelectedListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,12 +49,32 @@ class AddNoteFragment : Fragment() {
 
             override fun afterTextChanged(p0: Editable?) {}
         }
+
+        spinnerAdapter = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_item,
+            resources.getStringArray(R.array.level_of_importance_keys)
+        ).apply {
+            setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        }
+
+        spinnerItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, id: Long) {
+                //
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                //
+            }
+        }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         titleTextWatcher = null
         contentTextWatcher = null
+        spinnerAdapter = null
+        spinnerItemSelectedListener = null
     }
 
     override fun onAttach(context: Context) {
@@ -77,6 +102,17 @@ class AddNoteFragment : Fragment() {
         setupUI()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        with(binding) {
+            etTitleAddingNote.removeTextChangedListener(titleTextWatcher)
+            etContentAddingNote.removeTextChangedListener(contentTextWatcher)
+            spinnerLevelOfImportanceAddingNote.adapter = null
+            spinnerLevelOfImportanceAddingNote.onItemSelectedListener = null
+        }
+    }
+
     private fun setupUI() {
         binding.apply {
             etTitleAddingNote.addTextChangedListener(titleTextWatcher)
@@ -93,6 +129,12 @@ class AddNoteFragment : Fragment() {
                     Toast.LENGTH_SHORT
                 ).show()
                 requireActivity().finish()
+            }
+
+            with(spinnerLevelOfImportanceAddingNote) {
+                onItemSelectedListener = spinnerItemSelectedListener
+                adapter = spinnerAdapter
+                setSelection(1)
             }
 
             activity?.sharedViewModel?.apply {

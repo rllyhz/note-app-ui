@@ -9,12 +9,13 @@
       <item name="android:background">@drawable/bg_adding_item_text_field</item>
       <item name="android:inputType">textMultiLine</item>
       <item name="android:gravity">start</item>
+      <item name="hintTextColor">@color/grey_2</item>
+      <item name="android:textColor">@color/soft_black</item>
    </style>
 
    <style name="TextFieldTitleStyle" parent="TextFieldStyle">
       <item name="android:maxLength">50</item>
       <item name="maxLines">3</item>
-      <item name="hintTextColor">@color/grey_2</item>
       <item name="android:hint">@string/title_hint</item>
       <item name="android:ems">3</item>
    </style>

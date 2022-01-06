@@ -93,9 +93,10 @@
          android:layout_height="32dp"
          android:background="@drawable/ripple_effects"
          android:contentDescription="@string/close_bottom_sheet_button_tooltip_text"
-         android:src="@drawable/icon_close"
          app:layout_constraintLeft_toLeftOf="parent"
-         app:layout_constraintTop_toTopOf="parent" />
+         app:layout_constraintTop_toTopOf="parent"
+         app:srcCompat="@drawable/icon_close"
+         app:tint="?attr/colorPrimary" />
 
       <Button
          android:id="@+id/btn_delete_bottom_sheet_notes"

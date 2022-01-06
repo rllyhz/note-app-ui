@@ -115,7 +115,7 @@ class AddReminderFragment : Fragment() {
 
         with(binding) {
             etTitleAddingReminder.removeTextChangedListener(titleTextWatcher)
-            etDescriptionAddingReminder.removeTextChangedListener(titleTextWatcher)
+            etDescriptionAddingReminder.removeTextChangedListener(descriptionTextWatcher)
             spinnerLevelOfImportanceAddingReminder.adapter = null
             spinnerLevelOfImportanceAddingReminder.onItemSelectedListener = null
         }

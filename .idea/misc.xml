@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_adding_item_text_field.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_bottom_sheet_detail.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_bottom_sheet_level_of_importance.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_card_profile.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_outlined_button.xml" value="0.16898148148148148" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_peek_bottom_sheet.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_reminder_date.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_rounded_transparent.xml" value="0.16898148148148148" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/drawable/bg_search_notes.xml" value="0.16898148148148148" />
@@ -36,7 +38,7 @@
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/activity_splash.xml" value="0.15462962962962962" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/bottom_sheet_container_notes.xml" value="0.15462962962962962" />
-        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_add_note.xml" value="0.22" />
+        <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_add_note.xml" value="0.16666666666666666" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_add_reminder.xml" value="0.22" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_notes.xml" value="0.14666666666666667" />
         <entry key="..\:/Pembelajaran/Android Studio/Me App/app/src/main/res/layout/fragment_reminders.xml" value="0.17395833333333333" />
