@@ -14,7 +14,7 @@
    <style name="TextFieldTitleStyle" parent="TextFieldStyle">
       <item name="android:maxLength">50</item>
       <item name="maxLines">3</item>
-      <item name="hintTextColor">@color/greyish</item>
+      <item name="hintTextColor">@color/grey_2</item>
       <item name="android:hint">@string/title_hint</item>
       <item name="android:ems">3</item>
    </style>

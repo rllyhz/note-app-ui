@@ -130,7 +130,7 @@
          android:layout_marginTop="12dp"
          android:maxLines="20"
          android:text="@string/note_title_dummy_data"
-         android:textColor="@color/greyish"
+         android:textColor="@color/grey_2"
          android:textSize="16sp"
          app:layout_constraintLeft_toLeftOf="parent"
          app:layout_constraintTop_toBottomOf="@id/tv_note_title_bottom_sheet_notes" />

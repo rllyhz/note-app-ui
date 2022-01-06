@@ -4,7 +4,8 @@
    <color name="white">#FFFFFFFF</color>
 
    <color name="grey">#B29FA8</color>
-   <color name="greyish">#94888E</color>
+   <color name="grey_3">#9E9E9E</color>
+   <color name="grey_2">#94888E</color>
    <color name="pink">#7D5260</color>
    <color name="purple">#6750A4</color>
    <color name="blue">#4DB6D3</color>
@@ -13,9 +14,11 @@
    <color name="soft_blue">#E9F5FC</color>
    <color name="soft_pink">#FFE9F3</color>
    <color name="soft_orange">#FFF5E1</color>
+   <color name="soft_green">#D2F5DC</color>
    <color name="soft_purple">#EBE4FF</color>
    <color name="soft_pink_2">#FFDFE9</color>
    <color name="soft_grey">#F3F5F7</color>
+   <color name="soft_grey_2">#F4F4F4</color>
 
    <color name="dark_purple">#625B71</color>
 </resources>

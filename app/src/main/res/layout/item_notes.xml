@@ -36,7 +36,7 @@
          android:ellipsize="end"
          android:maxLines="6"
          android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-         android:textColor="@color/greyish"
+         android:textColor="@color/grey_2"
          app:layout_constraintLeft_toLeftOf="parent"
          app:layout_constraintTop_toBottomOf="@id/tv_item_notes_title"
          tools:text="@tools:sample/lorem/random" />

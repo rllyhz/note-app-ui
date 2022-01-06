@@ -15,7 +15,7 @@ fun View.lock() {
     isEnabled = false
 
     when (this) {
-        is TextView -> setTextColor(ContextCompat.getColor(context, R.color.greyish))
+        is TextView -> setTextColor(ContextCompat.getColor(context, R.color.grey_2))
     }
 }
 
