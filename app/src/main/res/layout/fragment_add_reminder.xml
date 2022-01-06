@@ -234,10 +234,10 @@
          android:id="@+id/tv_level_of_importance_description_label_adding_reminder"
          android:layout_width="180dp"
          android:layout_height="wrap_content"
-         android:textColor="@color/grey"
-         android:textSize="16sp"
          android:layout_alignParentTop="true"
-         android:text="@string/level_of_importance_description_label" />
+         android:text="@string/level_of_importance_description_label"
+         android:textColor="@color/grey"
+         android:textSize="16sp" />
 
       <Spinner
          android:id="@+id/spinner_level_of_importance_adding_reminder"
