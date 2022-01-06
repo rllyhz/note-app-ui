@@ -24,7 +24,7 @@
    <string name="content_hint">Typing…</string>
    <string name="title_hint">Give it a Title</string>
    <string name="description_hint">Set description</string>
-   <string name="daily_schedule_label">Daily Schedule</string>
+   <string name="daily_schedule_label">Daily Schedules</string>
    <string name="daily_schedule_description_label">Will be notified every day at the given time.</string>
    <string name="pick_a_time_label">Pick a time</string>
    <string name="schedule_once_on_label">Will be notified once on </string>
@@ -34,9 +34,9 @@
    <string name="level_of_importance_description_label">How important is it?</string>
 
    <string-array name="level_of_importance_keys">
-      <item>less_important</item>
-      <item>normal</item>
-      <item>important</item>
+      <item>Less Important</item>
+      <item>Normal</item>
+      <item>Important</item>
    </string-array>
 
    <integer-array name="level_of_importance_values">
