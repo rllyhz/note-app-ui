@@ -8,7 +8,7 @@ data class Note(
     val id: Long,
     val title: String,
     val content: String,
-    val importantLevel: Int,
+    val levelOfImportance: Int,
     val createdAt: Long,
     val updatedAt: Long
 ) : Parcelable

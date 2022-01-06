@@ -10,6 +10,7 @@ data class Reminder(
     val description: String,
     val isDailyReminder: Boolean,
     val notifyingAt: Long,
+    val levelOfImportance: Int,
     val createdAt: Long,
     val updatedAt: Long
 ) : Parcelable

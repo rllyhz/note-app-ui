@@ -48,7 +48,7 @@ object DataHelper {
                 5,
                 "test 3",
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-                ImportantLevel.VERY_IMPORTANT,
+                ImportantLevel.IMPORTANT,
                 Date().time,
                 Date().time
             )
@@ -58,7 +58,7 @@ object DataHelper {
                 6,
                 "test 4",
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do",
-                ImportantLevel.VERY_IMPORTANT,
+                ImportantLevel.IMPORTANT,
                 Date().time,
                 Date().time
             )
@@ -97,6 +97,7 @@ object DataHelper {
                 "quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 false,
                 Calendar.getInstance().timeInMillis,
+                ImportantLevel.NORMAL,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
             )
@@ -108,6 +109,7 @@ object DataHelper {
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.",
                 false,
                 Calendar.getInstance().timeInMillis,
+                ImportantLevel.LESS_IMPORTANT,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
             )
@@ -119,6 +121,7 @@ object DataHelper {
                 "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
                 false,
                 Calendar.getInstance().timeInMillis,
+                ImportantLevel.LESS_IMPORTANT,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
             )
@@ -130,6 +133,7 @@ object DataHelper {
                 "ut aliquip ex ea commodo consequat.",
                 false,
                 Calendar.getInstance().timeInMillis,
+                ImportantLevel.IMPORTANT,
                 Calendar.getInstance().timeInMillis,
                 Calendar.getInstance().timeInMillis
             )
