@@ -11,7 +11,7 @@
       android:layout_margin="8dp"
       android:background="@drawable/ripple_effects"
       android:contentDescription="@string/go_back_button_tooltip_text"
-      android:padding="4dp"
+      android:padding="8dp"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/icon_arrow_back" />
@@ -75,115 +75,178 @@
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="8dp"
       android:layout_marginTop="24dp"
-      android:text="@string/daily_notifications_label"
+      android:text="@string/daily_schedule_label"
       android:textColor="@color/soft_black"
       android:textSize="18sp"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintTop_toBottomOf="@id/et_description_adding_reminder" />
 
-   <LinearLayout
-      android:id="@+id/ll_container_daily_notifications_adding_reminder"
+   <RelativeLayout
+      android:id="@+id/rl_container_daily_notifications_adding_reminder"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginEnd="8dp"
-      android:background="@drawable/ripple_effects"
       android:clickable="true"
       android:focusable="true"
-      android:padding="8dp"
-      android:weightSum="2"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintLeft_toLeftOf="@id/tv_daily_notifications_label_adding_reminder"
+      app:layout_constraintRight_toRightOf="@id/et_description_adding_reminder"
       app:layout_constraintTop_toBottomOf="@id/tv_daily_notifications_label_adding_reminder">
 
-      <TextView
+      <LinearLayout
+         android:id="@+id/ll_container_daily_notifications_adding_reminder"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentStart="true"
+         android:layout_alignParentTop="true"
+         android:background="@drawable/ripple_effects"
+         android:weightSum="2">
+
+         <TextView
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/daily_schedule_description_label"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+         <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_daily_notifications_adding_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+      </LinearLayout>
+
+      <LinearLayout
+         android:id="@+id/ll_pick_a_time_adding_reminder"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_weight="1"
-         android:text="@string/daily_notifications_description_label"
-         android:textColor="@color/grey"
-         android:textSize="16sp" />
+         android:layout_below="@id/ll_container_daily_notifications_adding_reminder"
+         android:layout_alignParentEnd="true"
+         android:background="@drawable/ripple_effects"
+         android:clickable="true"
+         android:focusable="true"
+         android:gravity="center"
+         android:padding="8dp"
+         android:visibility="gone">
 
-      <com.google.android.material.switchmaterial.SwitchMaterial
-         android:id="@+id/switch_daily_notifications_adding_reminder"
-         android:layout_width="wrap_content"
-         android:layout_height="0dp"
-         android:layout_weight="1" />
-   </LinearLayout>
+         <TextView
+            android:id="@+id/tv_pick_a_time_label_adding_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_a_time_label"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
 
-   <LinearLayout
-      android:id="@+id/ll_pick_a_time_adding_reminder"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@drawable/ripple_effects"
-      android:clickable="true"
-      android:focusable="true"
-      android:gravity="center"
-      android:padding="8dp"
-      android:visibility="gone"
+         <ImageView
+            android:id="@+id/iv_ic_time_schedule_adding_reminder"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/add_reminders_tooltip_text"
+            app:srcCompat="@drawable/icon_time" />
 
-      app:layout_constraintLeft_toLeftOf="@id/ll_container_daily_notifications_adding_reminder"
-      app:layout_constraintTop_toBottomOf="@id/ll_container_daily_notifications_adding_reminder">
+      </LinearLayout>
 
-      <TextView
-         android:id="@+id/tv_pick_a_time_label_adding_reminder"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/pick_a_time_label"
-         android:textColor="@color/grey"
-         android:textSize="16sp" />
-
-      <ImageView
-         android:id="@+id/iv_ic_time_schedule_adding_reminder"
-         android:layout_width="24dp"
-         android:layout_height="24dp"
-         android:layout_marginStart="8dp"
-         android:contentDescription="@string/add_reminders_tooltip_text"
-         app:srcCompat="@drawable/icon_time" />
-
-   </LinearLayout>
+   </RelativeLayout>
 
    <TextView
       android:id="@+id/tv_schedule_on_label_adding_reminder"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginHorizontal="8dp"
-      android:layout_marginTop="16dp"
-      android:text="@string/schedule_on_label"
+      android:layout_marginTop="24dp"
+      android:text="@string/schedule_once_on_label"
       android:textColor="@color/soft_black"
       android:textSize="18sp"
       app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/ll_container_daily_notifications_adding_reminder" />
+      app:layout_constraintTop_toBottomOf="@id/rl_container_daily_notifications_adding_reminder" />
 
-   <LinearLayout
-      android:id="@+id/ll_pick_a_date_adding_reminder"
-      android:layout_width="wrap_content"
+   <RelativeLayout
+      android:id="@+id/rl_container_schedule_on_adding_reminder"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginStart="8dp"
-      android:background="@drawable/ripple_effects"
-      android:clickable="true"
-      android:focusable="true"
-      android:gravity="center"
-      android:padding="8dp"
       app:layout_constraintLeft_toLeftOf="@id/tv_schedule_on_label_adding_reminder"
+      app:layout_constraintRight_toRightOf="@id/et_description_adding_reminder"
       app:layout_constraintTop_toBottomOf="@id/tv_schedule_on_label_adding_reminder">
 
       <TextView
-         android:id="@+id/tv_pick_a_date_label_adding_reminder"
-         android:layout_width="wrap_content"
+         android:id="@+id/tv_schedule_on_description_label_adding_reminder"
+         android:layout_width="180dp"
          android:layout_height="wrap_content"
-         android:text="@string/pick_a_date_label"
+         android:layout_alignParentStart="true"
+         android:layout_alignParentTop="true"
+         android:text="@string/schedule_once_on_description_label"
          android:textColor="@color/grey"
          android:textSize="16sp" />
 
-      <ImageView
-         android:id="@+id/iv_ic_date_schedule_adding_reminder"
-         android:layout_width="24dp"
-         android:layout_height="24dp"
-         android:layout_marginStart="8dp"
-         android:contentDescription="@string/add_reminders_tooltip_text"
-         app:srcCompat="@drawable/icon_time" />
+      <LinearLayout
+         android:id="@+id/ll_pick_a_date_adding_reminder"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@id/tv_schedule_on_description_label_adding_reminder"
+         android:layout_alignBottom="@id/tv_schedule_on_description_label_adding_reminder"
+         android:layout_alignParentEnd="true"
+         android:background="@drawable/ripple_effects"
+         android:clickable="true"
+         android:focusable="true"
+         android:gravity="center"
+         android:padding="8dp">
 
-   </LinearLayout>
+         <TextView
+            android:id="@+id/tv_pick_a_date_label_adding_reminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_a_date_label"
+            android:textColor="@color/grey"
+            android:textSize="16sp" />
+
+         <ImageView
+            android:id="@+id/iv_ic_date_schedule_adding_reminder"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/add_reminders_tooltip_text"
+            app:srcCompat="@drawable/icon_time" />
+
+      </LinearLayout>
+
+   </RelativeLayout>
+
+   <TextView
+      android:id="@+id/tv_level_of_importance_label_adding_reminder"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:text="@string/level_of_importance_label"
+      android:textColor="@color/soft_black"
+      android:textSize="18sp"
+      app:layout_constraintLeft_toLeftOf="@id/rl_container_schedule_on_adding_reminder"
+      app:layout_constraintTop_toBottomOf="@id/rl_container_schedule_on_adding_reminder" />
+
+   <RelativeLayout
+      android:id="@+id/rl_container_level_of_importance_description_adding_reminder"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintLeft_toLeftOf="@id/tv_level_of_importance_label_adding_reminder"
+      app:layout_constraintRight_toRightOf="@id/et_description_adding_reminder"
+      app:layout_constraintTop_toBottomOf="@id/tv_level_of_importance_label_adding_reminder">
+
+      <TextView
+         android:id="@+id/tv_level_of_importance_description_label_adding_reminder"
+         android:layout_width="180dp"
+         android:layout_height="wrap_content"
+         android:textColor="@color/grey"
+         android:textSize="16sp"
+         android:layout_alignParentTop="true"
+         android:text="@string/level_of_importance_description_label" />
+
+      <Spinner
+         android:id="@+id/spinner_level_of_importance_adding_reminder"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignTop="@id/tv_level_of_importance_description_label_adding_reminder"
+         android:layout_alignBottom="@id/tv_level_of_importance_description_label_adding_reminder"
+         android:layout_alignParentEnd="true" />
+
+   </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
