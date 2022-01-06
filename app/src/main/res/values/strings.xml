@@ -15,6 +15,8 @@
    <string name="go_back_button_tooltip_text">Go Back button</string>
    <string name="save_note_tooltip_text">Create Note button</string>
    <string name="save_reminder_tooltip_text">Schedule Reminder button</string>
+   <string name="close_bottom_sheet_button_tooltip_text">Close Bottom Sheet button</string>
+   <string name="delete_bottom_sheet_button_tooltip_text">Delete Item Bottom Sheet button</string>
 
    <string name="reminders_pinned_label">Pinned</string>
    <string name="reminders_upcoming_label">Upcoming</string>
@@ -22,24 +24,37 @@
    <string name="content_hint">Typing…</string>
    <string name="title_hint">Give it a Title</string>
    <string name="description_hint">Set description</string>
-   <string name="schedule_on_label">Will be notified once on : </string>
+   <string name="daily_schedule_label">Daily Schedule</string>
+   <string name="daily_schedule_description_label">Will be notified every day at the given time.</string>
    <string name="pick_a_time_label">Pick a time</string>
+   <string name="schedule_once_on_label">Will be notified once on </string>
+   <string name="schedule_once_on_description_label">Reminder will be notified once at the specific time you set</string>
+   <string name="pick_a_date_label">Pick a date</string>
+   <string name="level_of_importance_label">Level of importance</string>
+   <string name="level_of_importance_description_label">How important is it?</string>
+
+   <string-array name="level_of_importance_keys">
+      <item>less_important</item>
+      <item>normal</item>
+      <item>important</item>
+   </string-array>
+
+   <integer-array name="level_of_importance_values">
+      <item>0</item>
+      <item>1</item>
+      <item>2</item>
+   </integer-array>
 
    <string name="time_dummy_data">Sat, 12 2021 —:—</string>
    <string name="note_title_dummy_data">Note Test</string>
+   <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
+   <string name="profile_job_dummy_data">Mobile Engineer</string>
 
    <string name="successfully_added_note_message">Note successfully added</string>
    <string name="failed_to_add_note_message">Note successfully added</string>
    <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
    <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
-   <string name="close_bottom_sheet_button_tooltip_text">Close Bottom Sheet button</string>
-   <string name="delete_bottom_sheet_button_tooltip_text">Delete Item Bottom Sheet button</string>
-   <string name="daily_notifications_label">Daily Notifications</string>
-   <string name="daily_notifications_description_label">Will notify the reminder daily</string>
-   <string name="pick_a_date_label">Pick a date</string>
    <string name="background_content_description">Background Content Description</string>
-   <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
-   <string name="profile_job_dummy_data">Mobile Engineer</string>
    <string name="btn_delete_label">Delete</string>
    <string name="content_description_add_reminders_button">Add Reminders Button</string>
    <string name="dialog_title_deleting_notes">Deleting Note</string>
