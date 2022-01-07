@@ -61,4 +61,8 @@
    <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
    <string name="negative_button_label_deleting_notes">Cancel</string>
    <string name="positive_button_label_deleting_notes">Yes</string>
+   <string name="level_of_importance_label_bottom_sheet_notes">Level</string>
+   <string name="updated_at_label_bottom_sheet_notes">Updated at</string>
+   <string name="level_of_importance_dummy_data">Normal</string>
+   <string name="date_dummy_data">Feb 21, 2021</string>
 </resources>

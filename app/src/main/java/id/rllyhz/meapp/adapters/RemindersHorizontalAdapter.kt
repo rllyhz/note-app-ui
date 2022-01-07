@@ -10,7 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Reminder
 import id.rllyhz.meapp.databinding.ItemRemindersHorizontalBinding
-import id.rllyhz.meapp.utils.ColorHelper
+import id.rllyhz.meapp.utils.ResourcesHelper
+import id.rllyhz.meapp.utils.capitalize
 import id.rllyhz.meapp.utils.formattedNotifyingAt
 
 class RemindersHorizontalAdapter :
@@ -64,10 +65,10 @@ class RemindersHorizontalAdapter :
 
         fun bind(reminder: Reminder) {
             binding.apply {
-                tvItemRemindersHorizontalTitle.text = reminder.title
-                tvItemRemindersHorizontalDescription.text = reminder.description
+                tvItemRemindersHorizontalTitle.text = reminder.title.capitalize()
+                tvItemRemindersHorizontalDescription.text = reminder.description.capitalize()
                 tvItemRemindersHorizontalNotifyingAt.text = reminder.formattedNotifyingAt()
-                cvItemReminders.setCardBackgroundColor(ColorHelper.getRandomColor(itemView.context))
+                cvItemReminders.setCardBackgroundColor(ResourcesHelper.getRandomColor(itemView.context))
 
                 itemView.setOnClickListener {
                     callback?.onReminderClick(reminder)

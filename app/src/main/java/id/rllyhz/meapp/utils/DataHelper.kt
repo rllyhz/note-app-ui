@@ -12,7 +12,16 @@ object DataHelper {
     fun getAllNotes(): List<Note> {
         val notes = ArrayList<Note>()
 
-        notes.add(Note(1, "test 1", "lorem ipsum", LevelOfImportance.NORMAL, Date().time, Date().time))
+        notes.add(
+            Note(
+                1,
+                "test 1",
+                "lorem ipsum",
+                LevelOfImportance.LESS_IMPORTANT,
+                Date().time,
+                Date().time
+            )
+        )
         notes.add(
             Note(
                 2,
@@ -198,3 +207,10 @@ fun Long.getTimeAgo(): String {
         "A moment ago"
     }
 }
+
+fun String.capitalize(): String =
+    replaceFirstChar {
+        if (it.isLowerCase()) it.titlecase(
+            Locale.getDefault()
+        ) else it.toString()
+    }

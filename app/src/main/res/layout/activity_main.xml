@@ -22,6 +22,7 @@
       android:id="@+id/bottom_navigation_view"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:theme="@style/BottomNavigationStyle"
       app:itemBackground="@android:color/transparent"
       app:itemIconTint="@drawable/selector_navigation_menu_color"
       app:itemTextColor="@drawable/selector_navigation_menu_color"

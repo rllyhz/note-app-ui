@@ -1,6 +1,7 @@
 package id.rllyhz.meapp.ui.feature.notes
 
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,6 +14,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.asLiveData
@@ -23,6 +25,8 @@ import id.rllyhz.meapp.adapters.NotesAdapter
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.FragmentNotesBinding
 import id.rllyhz.meapp.ui.adding_item.AddItemActivity
+import id.rllyhz.meapp.utils.ResourcesHelper
+import id.rllyhz.meapp.utils.capitalize
 import id.rllyhz.meapp.utils.hide
 import id.rllyhz.meapp.utils.show
 
@@ -77,6 +81,7 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
 
     private fun setupUI() {
         with(binding) {
+
             deletingAlert = AlertDialog.Builder(requireContext())
                 .setTitle(getString(R.string.dialog_title_deleting_notes))
                 .setMessage(getString(R.string.dialog_message_deleting_notes))
@@ -176,14 +181,23 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 )
             )
 
+            getBgBadge()?.let {
+                it.setTint(ContextCompat.getColor(requireContext(), R.color.grey_3))
+                tvNoteUpdatedAtBottomSheetNote.background = it
+            }
+
             with(viewModel) {
                 allNotes.observe(requireActivity()) {
                     notesAdapter?.submitList(it)
                 }
 
                 selectedNote.observe(requireActivity()) { note ->
-                    tvNoteTitleBottomSheetNotes.text = note.title
-                    tvNoteContentBottomSheetNotes.text = note.content
+                    tvNoteTitleBottomSheetNotes.text = note.title.capitalize()
+                    tvNoteContentBottomSheetNotes.text = note.content.capitalize()
+                    tvNoteLevelOfImportanceBottomSheetNote.background =
+                        getBackgroundForLevelOfImportance(note.levelOfImportance)
+                    tvNoteLevelOfImportanceBottomSheetNote.text =
+                        getDescriptionForLevelOfImportanceIndex(note.levelOfImportance)
                 }
 
                 shouldLoadingState.asLiveData().observe(requireActivity()) {
@@ -192,6 +206,15 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
             }
         }
     }
+
+    private fun getBgBadge(): Drawable? =
+        ResourcesHelper.getBackgroundBadge(requireContext())
+
+    private fun getBackgroundForLevelOfImportance(levelOfImportance: Int): Drawable? =
+        ResourcesHelper.getBackgroundBadgeForLevelOfImportance(requireContext(), levelOfImportance)
+
+    private fun getDescriptionForLevelOfImportanceIndex(levelOfImportance: Int): String =
+        ResourcesHelper.getDescriptionForLevelOfImportanceIndex(requireContext(), levelOfImportance)
 
     private fun showLoading(state: Boolean) {
         with(binding) {

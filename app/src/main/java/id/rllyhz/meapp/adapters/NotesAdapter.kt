@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.ItemNotesBinding
-import id.rllyhz.meapp.utils.ColorHelper
+import id.rllyhz.meapp.utils.ResourcesHelper
+import id.rllyhz.meapp.utils.capitalize
 import id.rllyhz.meapp.utils.formattedUpdatedAt
 
 class NotesAdapter : ListAdapter<Note, NotesAdapter.NotesViewHolder>(NotesComparator()) {
@@ -30,10 +31,10 @@ class NotesAdapter : ListAdapter<Note, NotesAdapter.NotesViewHolder>(NotesCompar
 
         fun bind(note: Note) {
             binding.apply {
-                tvItemNotesTitle.text = note.title
-                tvItemNotesContent.text = note.content
+                tvItemNotesTitle.text = note.title.capitalize()
+                tvItemNotesContent.text = note.content.capitalize()
                 tvItemNotesCreatedAt.text = note.formattedUpdatedAt()
-                cvItemNotes.setCardBackgroundColor(ColorHelper.getRandomColor(itemView.context))
+                cvItemNotes.setCardBackgroundColor(ResourcesHelper.getRandomColor(itemView.context))
 
                 itemView.setOnClickListener {
                     callback?.onNoteClick(note)

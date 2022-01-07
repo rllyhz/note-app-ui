@@ -17,11 +17,11 @@
       app:srcCompat="@drawable/icon_arrow_back" />
 
    <TextView
-      style="@style/HeadingStyle"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
       android:text="@string/action_bar_add_reminder"
+      android:textAppearance="@style/TextStyle.Heading"
       app:layout_constraintBottom_toBottomOf="@id/btn_go_back_adding_reminder"
       app:layout_constraintLeft_toRightOf="@id/btn_go_back_adding_reminder"
       app:layout_constraintTop_toTopOf="@id/btn_go_back_adding_reminder" />
@@ -241,6 +241,7 @@
 
       <Spinner
          android:id="@+id/spinner_level_of_importance_adding_reminder"
+         style="@style/CustomSpinnerStyle"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_alignTop="@id/tv_level_of_importance_description_label_adding_reminder"
