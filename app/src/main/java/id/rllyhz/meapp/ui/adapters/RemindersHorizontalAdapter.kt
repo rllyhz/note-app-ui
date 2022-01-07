@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.adapters
+package id.rllyhz.meapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,30 +9,39 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Reminder
-import id.rllyhz.meapp.databinding.ItemRemindersBinding
+import id.rllyhz.meapp.databinding.ItemRemindersHorizontalBinding
 import id.rllyhz.meapp.utils.ResourcesHelper
 import id.rllyhz.meapp.utils.capitalize
 import id.rllyhz.meapp.utils.formattedNotifyingAt
 
-class RemindersAdapter :
-    ListAdapter<Reminder, RemindersAdapter.RemindersViewHolder>(RemindersComparator()) {
+class RemindersHorizontalAdapter :
+    ListAdapter<Reminder, RemindersHorizontalAdapter.RemindersHorizontalViewHolder>(
+        RemindersHorizontalComparator()
+    ) {
 
     private var lastPosition: Int = -1
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RemindersViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): RemindersHorizontalViewHolder {
         val binding =
-            ItemRemindersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return RemindersViewHolder(binding)
+            ItemRemindersHorizontalBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
+        return RemindersHorizontalViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RemindersViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RemindersHorizontalViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
             setAnimationToItemView(holder.itemView, position)
         }
     }
 
-    override fun onViewDetachedFromWindow(holder: RemindersViewHolder) {
+    override fun onViewDetachedFromWindow(holder: RemindersHorizontalViewHolder) {
         super.onViewDetachedFromWindow(holder)
         holder.clearAnimation()
     }
@@ -50,15 +59,15 @@ class RemindersAdapter :
     }
 
     // view holder
-    inner class RemindersViewHolder(
-        private val binding: ItemRemindersBinding
+    inner class RemindersHorizontalViewHolder(
+        private val binding: ItemRemindersHorizontalBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(reminder: Reminder) {
             binding.apply {
-                tvItemRemindersTitle.text = reminder.title.capitalize()
-                tvItemRemindersDescription.text = reminder.description.capitalize()
-                tvItemRemindersNotifyingAt.text = reminder.formattedNotifyingAt()
+                tvItemRemindersHorizontalTitle.text = reminder.title.capitalize()
+                tvItemRemindersHorizontalDescription.text = reminder.description.capitalize()
+                tvItemRemindersHorizontalNotifyingAt.text = reminder.formattedNotifyingAt()
                 cvItemReminders.setCardBackgroundColor(ResourcesHelper.getRandomColor(itemView.context))
 
                 itemView.setOnClickListener {
@@ -73,7 +82,7 @@ class RemindersAdapter :
     }
 
     // Diffutil
-    class RemindersComparator : DiffUtil.ItemCallback<Reminder>() {
+    class RemindersHorizontalComparator : DiffUtil.ItemCallback<Reminder>() {
         override fun areItemsTheSame(oldItem: Reminder, newItem: Reminder): Boolean =
             oldItem.id == newItem.id
 

@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.adapters
+package id.rllyhz.meapp.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

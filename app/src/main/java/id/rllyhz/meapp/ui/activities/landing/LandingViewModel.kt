@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.landing
+package id.rllyhz.meapp.ui.activities.landing
 
 import android.content.Context
 import androidx.datastore.preferences.core.Preferences

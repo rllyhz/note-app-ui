@@ -33,6 +33,16 @@
    <string name="level_of_importance_label">Level of importance</string>
    <string name="level_of_importance_description_label">How important is it?</string>
 
+   <string name="background_content_description">Background Content Description</string>
+   <string name="btn_delete_label">Delete</string>
+   <string name="content_description_add_reminders_button">Add Reminders Button</string>
+   <string name="dialog_title_deleting_notes">Deleting Note</string>
+   <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
+   <string name="negative_button_label_deleting_notes">Cancel</string>
+   <string name="positive_button_label_deleting_notes">Yes</string>
+   <string name="level_of_importance_label_bottom_sheet_notes">Level</string>
+   <string name="updated_at_label_bottom_sheet_notes">Updated at</string>
+
    <string-array name="level_of_importance_keys">
       <item>Less Important</item>
       <item>Normal</item>
@@ -49,20 +59,12 @@
    <string name="note_title_dummy_data">Note Test</string>
    <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
    <string name="profile_job_dummy_data">Mobile Engineer</string>
+   <string name="level_of_importance_dummy_data">Normal</string>
+   <string name="date_dummy_data">Feb 21, 2021</string>
 
    <string name="successfully_added_note_message">Note successfully added</string>
    <string name="failed_to_add_note_message">Note successfully added</string>
    <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
    <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
-   <string name="background_content_description">Background Content Description</string>
-   <string name="btn_delete_label">Delete</string>
-   <string name="content_description_add_reminders_button">Add Reminders Button</string>
-   <string name="dialog_title_deleting_notes">Deleting Note</string>
-   <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
-   <string name="negative_button_label_deleting_notes">Cancel</string>
-   <string name="positive_button_label_deleting_notes">Yes</string>
-   <string name="level_of_importance_label_bottom_sheet_notes">Level</string>
-   <string name="updated_at_label_bottom_sheet_notes">Updated at</string>
-   <string name="level_of_importance_dummy_data">Normal</string>
-   <string name="date_dummy_data">Feb 21, 2021</string>
+
 </resources>

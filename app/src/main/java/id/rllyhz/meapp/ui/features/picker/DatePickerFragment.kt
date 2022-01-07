@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.picker
+package id.rllyhz.meapp.ui.features.picker
 
 import android.app.DatePickerDialog
 import android.app.Dialog

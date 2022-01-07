@@ -4,4 +4,4 @@
    android:id="@+id/main_frame_landing"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
-   tools:context=".ui.landing.LandingActivity" />
+   tools:context=".ui.activities.landing.LandingActivity" />

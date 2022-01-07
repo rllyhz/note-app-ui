@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.main
+package id.rllyhz.meapp.ui.activities.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

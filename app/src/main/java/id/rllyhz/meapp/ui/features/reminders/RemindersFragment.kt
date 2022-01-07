@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.reminders
+package id.rllyhz.meapp.ui.features.reminders
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import id.rllyhz.meapp.adapters.RemindersAdapter
-import id.rllyhz.meapp.adapters.RemindersHorizontalAdapter
 import id.rllyhz.meapp.data.models.Reminder
 import id.rllyhz.meapp.databinding.FragmentRemindersBinding
-import id.rllyhz.meapp.ui.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.adapters.RemindersAdapter
+import id.rllyhz.meapp.ui.adapters.RemindersHorizontalAdapter
 
 class RemindersFragment : Fragment(), RemindersAdapter.ReminderItemClickCallback,
     RemindersHorizontalAdapter.ReminderItemClickCallback {

@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.notes
+package id.rllyhz.meapp.ui.features.notes
 
 import android.content.Intent
 import android.graphics.drawable.Drawable
@@ -21,14 +21,11 @@ import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.rllyhz.meapp.R
-import id.rllyhz.meapp.adapters.NotesAdapter
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.FragmentNotesBinding
-import id.rllyhz.meapp.ui.adding_item.AddItemActivity
-import id.rllyhz.meapp.utils.ResourcesHelper
-import id.rllyhz.meapp.utils.capitalize
-import id.rllyhz.meapp.utils.hide
-import id.rllyhz.meapp.utils.show
+import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.adapters.NotesAdapter
+import id.rllyhz.meapp.utils.*
 
 class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
     private var _binding: FragmentNotesBinding? = null
@@ -198,6 +195,7 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                         getBackgroundForLevelOfImportance(note.levelOfImportance)
                     tvNoteLevelOfImportanceBottomSheetNote.text =
                         getDescriptionForLevelOfImportanceIndex(note.levelOfImportance)
+                    tvNoteUpdatedAtBottomSheetNote.text = note.formattedUpdatedAt()
                 }
 
                 shouldLoadingState.asLiveData().observe(requireActivity()) {

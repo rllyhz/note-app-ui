@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.reminders
+package id.rllyhz.meapp.ui.features.reminders
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

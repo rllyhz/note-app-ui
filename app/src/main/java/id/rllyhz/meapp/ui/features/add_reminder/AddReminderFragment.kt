@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.add_reminder
+package id.rllyhz.meapp.ui.features.add_reminder
 
 import android.content.Context
 import android.os.Bundle
@@ -14,13 +14,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentAddReminderBinding
-import id.rllyhz.meapp.ui.adding_item.AddItemActivity
-import id.rllyhz.meapp.ui.feature.picker.DatePickerFragment
-import id.rllyhz.meapp.ui.feature.picker.TimePickerFragment
+import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.features.picker.DatePickerFragment
+import id.rllyhz.meapp.ui.features.picker.TimePickerFragment
 import id.rllyhz.meapp.utils.hide
 import id.rllyhz.meapp.utils.show
-import id.rllyhz.meapp.utils.toDateString
-import id.rllyhz.meapp.utils.toTimeString
+import id.rllyhz.meapp.utils.getDateString
+import id.rllyhz.meapp.utils.getTimeString
 
 class AddReminderFragment : Fragment() {
     private var _binding: FragmentAddReminderBinding? = null
@@ -180,9 +180,9 @@ class AddReminderFragment : Fragment() {
                 selectedTime.observe(requireActivity()) { date ->
                     date?.let {
                         if (llPickADateAddingReminder.isVisible) {
-                            tvPickADateLabelAddingReminder.text = date.toDateString()
+                            tvPickADateLabelAddingReminder.text = date.getDateString()
                         } else {
-                            tvPickATimeLabelAddingReminder.text = date.toTimeString()
+                            tvPickATimeLabelAddingReminder.text = date.getTimeString()
                         }
                     }
                 }

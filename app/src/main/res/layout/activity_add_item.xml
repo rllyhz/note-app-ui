@@ -4,6 +4,6 @@
    android:id="@+id/main_frame_add_item"
    android:layout_width="match_parent"
    android:layout_height="match_parent"
-   tools:context=".ui.adding_item.AddItemActivity">
+   tools:context=".ui.activities.adding_item.AddItemActivity">
 
 </FrameLayout>

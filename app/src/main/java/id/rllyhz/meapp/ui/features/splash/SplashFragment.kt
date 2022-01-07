@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.splash
+package id.rllyhz.meapp.ui.features.splash
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,9 +9,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.asLiveData
+import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentSplashBinding
-import id.rllyhz.meapp.ui.landing.LandingActivity
-import id.rllyhz.meapp.ui.main.MainActivity
+import id.rllyhz.meapp.ui.activities.landing.LandingActivity
+import id.rllyhz.meapp.ui.activities.main.MainActivity
 import id.rllyhz.meapp.utils.PreferencesKeys
 
 class SplashFragment : Fragment() {
@@ -67,12 +68,12 @@ class SplashFragment : Fragment() {
                         viewModel.setUserPreferencesByStringKey(
                             requireContext(),
                             PreferencesKeys.NAME,
-                            "Rully Ihza Mahendra"
+                            getString(R.string.profile_name_dummy_data)
                         )
                         viewModel.setUserPreferencesByStringKey(
                             requireContext(),
                             PreferencesKeys.JOB_NAME,
-                            "Mobile Engineer"
+                            getString(R.string.profile_job_dummy_data)
                         )
                         viewModel.setUserPreferencesByBooleanKey(
                             requireContext(),

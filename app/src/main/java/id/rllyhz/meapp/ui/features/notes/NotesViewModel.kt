@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.notes
+package id.rllyhz.meapp.ui.features.notes
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

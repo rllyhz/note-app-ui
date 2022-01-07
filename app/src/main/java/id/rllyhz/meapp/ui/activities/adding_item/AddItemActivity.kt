@@ -1,14 +1,14 @@
-package id.rllyhz.meapp.ui.adding_item
+package id.rllyhz.meapp.ui.activities.adding_item
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
-import id.rllyhz.meapp.ui.feature.add_note.AddNoteFragment
-import id.rllyhz.meapp.ui.feature.add_reminder.AddReminderFragment
-import id.rllyhz.meapp.ui.feature.picker.DatePickerFragment
-import id.rllyhz.meapp.ui.feature.picker.TimePickerFragment
+import id.rllyhz.meapp.ui.features.add_note.AddNoteFragment
+import id.rllyhz.meapp.ui.features.add_reminder.AddReminderFragment
+import id.rllyhz.meapp.ui.features.picker.DatePickerFragment
+import id.rllyhz.meapp.ui.features.picker.TimePickerFragment
 import java.util.*
 
 class AddItemActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener,

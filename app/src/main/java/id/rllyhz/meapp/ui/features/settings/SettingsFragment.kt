@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.settings
+package id.rllyhz.meapp.ui.features.settings
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,10 +10,6 @@ import id.rllyhz.meapp.databinding.FragmentSettingsBinding
 class SettingsFragment : Fragment() {
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

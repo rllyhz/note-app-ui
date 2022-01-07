@@ -205,7 +205,7 @@
             android:layout_height="24dp"
             android:layout_marginStart="8dp"
             android:contentDescription="@string/add_reminders_tooltip_text"
-            app:srcCompat="@drawable/icon_time" />
+            app:srcCompat="@drawable/icon_calendar" />
 
       </LinearLayout>
 

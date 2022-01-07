@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.adding_item
+package id.rllyhz.meapp.ui.activities.adding_item
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

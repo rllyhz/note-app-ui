@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.feature.add_note
+package id.rllyhz.meapp.ui.features.add_note
 
 import android.content.Context
 import android.os.Bundle
@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentAddNoteBinding
-import id.rllyhz.meapp.ui.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
 
 class AddNoteFragment : Fragment() {
     private var _binding: FragmentAddNoteBinding? = null

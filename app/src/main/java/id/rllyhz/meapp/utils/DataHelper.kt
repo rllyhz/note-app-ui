@@ -164,9 +164,9 @@ private fun convertLongToTimeString(time: Long): String = Date(time).run {
 
 fun Note.formattedUpdatedAt(): String = convertLongToDateString(updatedAt)
 
-fun Date.toDateString(): String = convertLongToDateString(time)
+fun Date.getDateString(): String = convertLongToDateString(time)
 
-fun Date.toTimeString(): String = convertLongToTimeString(time)
+fun Date.getTimeString(): String = convertLongToTimeString(time)
 
 fun Reminder.formattedNotifyingAt(): String = convertLongToDateString(notifyingAt)
 
