@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentAddNoteBinding
-import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 
 class AddNoteFragment : Fragment() {
     private var _binding: FragmentAddNoteBinding? = null
@@ -22,7 +22,7 @@ class AddNoteFragment : Fragment() {
     private var titleTextWatcher: TextWatcher? = null
     private var contentTextWatcher: TextWatcher? = null
 
-    private var activity: AddItemActivity? = null
+    private var activity: AddOrUpdateItemActivity? = null
 
     private var spinnerAdapter: ArrayAdapter<String>? = null
     private var spinnerItemSelectedListener: AdapterView.OnItemSelectedListener? = null
@@ -79,7 +79,7 @@ class AddNoteFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        activity = context as AddItemActivity
+        activity = context as AddOrUpdateItemActivity
     }
 
     override fun onDetach() {

@@ -23,7 +23,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.databinding.FragmentNotesBinding
-import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 import id.rllyhz.meapp.ui.adapters.NotesAdapter
 import id.rllyhz.meapp.utils.*
 
@@ -160,8 +160,11 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
             }
 
             fabNotesAdd.setOnClickListener {
-                Intent(requireActivity(), AddItemActivity::class.java).also {
-                    it.putExtra(AddItemActivity.DESTINATION_PAGE, AddItemActivity.ADDING_NOTES_PAGE)
+                Intent(requireActivity(), AddOrUpdateItemActivity::class.java).also {
+                    it.putExtra(
+                        AddOrUpdateItemActivity.DESTINATION_PAGE,
+                        AddOrUpdateItemActivity.ADDING_NOTES_PAGE
+                    )
                     startActivity(it)
                 }
             }

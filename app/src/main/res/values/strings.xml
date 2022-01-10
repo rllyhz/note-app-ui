@@ -17,6 +17,7 @@
    <string name="save_reminder_tooltip_text">Schedule Reminder button</string>
    <string name="close_bottom_sheet_button_tooltip_text">Close Bottom Sheet button</string>
    <string name="delete_bottom_sheet_button_tooltip_text">Delete Item Bottom Sheet button</string>
+   <string name="edit_bottom_sheet_button_tooltip_text">Edit Item Bottom Sheet button</string>
 
    <string name="reminders_pinned_label">Pinned</string>
    <string name="reminders_upcoming_label">Upcoming</string>

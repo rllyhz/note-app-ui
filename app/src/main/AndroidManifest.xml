@@ -19,7 +19,7 @@
          </intent-filter>
       </activity>
       <activity
-         android:name=".ui.activities.adding_item.AddItemActivity"
+         android:name=".ui.activities.adding_updating_item.AddOrUpdateItemActivity"
          android:exported="false" />
       <activity
          android:name="id.rllyhz.meapp.ui.activities.main.MainActivity"

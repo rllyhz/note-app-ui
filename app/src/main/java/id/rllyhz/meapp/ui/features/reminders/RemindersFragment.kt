@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import id.rllyhz.meapp.data.models.Reminder
 import id.rllyhz.meapp.databinding.FragmentRemindersBinding
-import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 import id.rllyhz.meapp.ui.adapters.RemindersAdapter
 import id.rllyhz.meapp.ui.adapters.RemindersHorizontalAdapter
 
@@ -58,10 +58,10 @@ class RemindersFragment : Fragment(), RemindersAdapter.ReminderItemClickCallback
         with(binding) {
 
             btnAddReminder.setOnClickListener {
-                Intent(requireActivity(), AddItemActivity::class.java).also {
+                Intent(requireActivity(), AddOrUpdateItemActivity::class.java).also {
                     it.putExtra(
-                        AddItemActivity.DESTINATION_PAGE,
-                        AddItemActivity.ADDING_REMINDERS_PAGE
+                        AddOrUpdateItemActivity.DESTINATION_PAGE,
+                        AddOrUpdateItemActivity.ADDING_REMINDERS_PAGE
                     )
                     startActivity(it)
                 }

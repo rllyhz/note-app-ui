@@ -14,13 +14,13 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.FragmentAddReminderBinding
-import id.rllyhz.meapp.ui.activities.adding_item.AddItemActivity
+import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 import id.rllyhz.meapp.ui.features.picker.DatePickerFragment
 import id.rllyhz.meapp.ui.features.picker.TimePickerFragment
-import id.rllyhz.meapp.utils.hide
-import id.rllyhz.meapp.utils.show
 import id.rllyhz.meapp.utils.getDateString
 import id.rllyhz.meapp.utils.getTimeString
+import id.rllyhz.meapp.utils.hide
+import id.rllyhz.meapp.utils.show
 
 class AddReminderFragment : Fragment() {
     private var _binding: FragmentAddReminderBinding? = null
@@ -29,7 +29,7 @@ class AddReminderFragment : Fragment() {
     private var titleTextWatcher: TextWatcher? = null
     private var descriptionTextWatcher: TextWatcher? = null
 
-    private var activity: AddItemActivity? = null
+    private var activity: AddOrUpdateItemActivity? = null
 
     private var spinnerAdapter: ArrayAdapter<String>? = null
     private var spinnerItemSelectedListener: AdapterView.OnItemSelectedListener? = null
@@ -87,7 +87,7 @@ class AddReminderFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        activity = context as AddItemActivity
+        activity = context as AddOrUpdateItemActivity
     }
 
     override fun onDetach() {
