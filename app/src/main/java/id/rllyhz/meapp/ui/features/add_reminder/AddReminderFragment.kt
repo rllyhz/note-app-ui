@@ -13,7 +13,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
-import id.rllyhz.meapp.databinding.FragmentAddReminderBinding
+import id.rllyhz.meapp.databinding.FragmentAddOrUpdateReminderBinding
 import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 import id.rllyhz.meapp.ui.features.picker.DatePickerFragment
 import id.rllyhz.meapp.ui.features.picker.TimePickerFragment
@@ -23,8 +23,8 @@ import id.rllyhz.meapp.utils.hide
 import id.rllyhz.meapp.utils.show
 
 class AddReminderFragment : Fragment() {
-    private var _binding: FragmentAddReminderBinding? = null
-    private val binding: FragmentAddReminderBinding get() = _binding!!
+    private var _binding: FragmentAddOrUpdateReminderBinding? = null
+    private val binding: FragmentAddOrUpdateReminderBinding get() = _binding!!
 
     private var titleTextWatcher: TextWatcher? = null
     private var descriptionTextWatcher: TextWatcher? = null
@@ -101,7 +101,7 @@ class AddReminderFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddReminderBinding.inflate(inflater, container, false)
+        _binding = FragmentAddOrUpdateReminderBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -114,23 +114,23 @@ class AddReminderFragment : Fragment() {
         super.onDestroyView()
 
         with(binding) {
-            etTitleAddingReminder.removeTextChangedListener(titleTextWatcher)
-            etDescriptionAddingReminder.removeTextChangedListener(descriptionTextWatcher)
-            spinnerLevelOfImportanceAddingReminder.adapter = null
-            spinnerLevelOfImportanceAddingReminder.onItemSelectedListener = null
+            etTitleAddingOrUpdatingReminder.removeTextChangedListener(titleTextWatcher)
+            etDescriptionAddingOrUpdatingReminder.removeTextChangedListener(descriptionTextWatcher)
+            spinnerLevelOfImportanceAddingOrUpdatingReminder.adapter = null
+            spinnerLevelOfImportanceAddingOrUpdatingReminder.onItemSelectedListener = null
         }
     }
 
     private fun setupUI() {
         binding.apply {
-            etTitleAddingReminder.addTextChangedListener(titleTextWatcher)
-            etDescriptionAddingReminder.addTextChangedListener(descriptionTextWatcher)
+            etTitleAddingOrUpdatingReminder.addTextChangedListener(titleTextWatcher)
+            etDescriptionAddingOrUpdatingReminder.addTextChangedListener(descriptionTextWatcher)
 
-            btnGoBackAddingReminder.setOnClickListener {
+            btnGoBackAddingOrUpdatingReminder.setOnClickListener {
                 requireActivity().finish()
             }
 
-            btnSaveAddingReminder.setOnClickListener {
+            btnSaveAddingOrUpdatingReminder.setOnClickListener {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.successfully_scheduled_reminder_message),
@@ -143,46 +143,46 @@ class AddReminderFragment : Fragment() {
                 activity?.sharedViewModel?.isDailyNotifications(isChecked)
 
                 if (isChecked) {
-                    llPickATimeAddingReminder.show()
-                    tvScheduleOnLabelAddingReminder.hide()
-                    rlContainerScheduleOnAddingReminder.hide()
+                    llPickATimeAddingOrUpdatingReminder.show()
+                    tvScheduleOnLabelAddingOrUpdatingReminder.hide()
+                    rlContainerScheduleOnAddingOrUpdatingReminder.hide()
                 } else {
-                    llPickATimeAddingReminder.hide()
-                    tvScheduleOnLabelAddingReminder.show()
-                    rlContainerScheduleOnAddingReminder.show()
+                    llPickATimeAddingOrUpdatingReminder.hide()
+                    tvScheduleOnLabelAddingOrUpdatingReminder.show()
+                    rlContainerScheduleOnAddingOrUpdatingReminder.show()
                 }
             }
 
-            llContainerDailyNotificationsAddingReminder.setOnClickListener {
+            llContainerDailyNotificationsAddingOrUpdatingReminder.setOnClickListener {
                 switchDailyNotificationsAddingReminder.run {
                     isChecked = !isChecked
                 }
             }
 
-            llPickADateAddingReminder.setOnClickListener {
+            llPickADateAddingOrUpdatingReminder.setOnClickListener {
                 DatePickerFragment().show(requireActivity().supportFragmentManager, DATE_PICKER_TAG)
             }
 
-            llPickATimeAddingReminder.setOnClickListener {
+            llPickATimeAddingOrUpdatingReminder.setOnClickListener {
                 TimePickerFragment().show(requireActivity().supportFragmentManager, TIME_PICKER_TAG)
             }
 
-            with(spinnerLevelOfImportanceAddingReminder) {
+            with(spinnerLevelOfImportanceAddingOrUpdatingReminder) {
                 onItemSelectedListener = spinnerItemSelectedListener
                 adapter = spinnerAdapter
                 setSelection(1)
             }
 
             activity?.sharedViewModel?.apply {
-                etTitleAddingReminder.setText(titleText.value)
-                etDescriptionAddingReminder.setText(descriptionText.value)
+                etTitleAddingOrUpdatingReminder.setText(titleText.value)
+                etDescriptionAddingOrUpdatingReminder.setText(descriptionText.value)
 
                 selectedTime.observe(requireActivity()) { date ->
                     date?.let {
-                        if (llPickADateAddingReminder.isVisible) {
-                            tvPickADateLabelAddingReminder.text = date.getDateString()
+                        if (llPickADateAddingOrUpdatingReminder.isVisible) {
+                            tvPickADateLabelAddingOrUpdatingReminder.text = date.getDateString()
                         } else {
-                            tvPickATimeLabelAddingReminder.text = date.getTimeString()
+                            tvPickATimeLabelAddingOrUpdatingReminder.text = date.getTimeString()
                         }
                     }
                 }

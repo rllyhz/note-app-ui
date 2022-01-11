@@ -12,12 +12,12 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
-import id.rllyhz.meapp.databinding.FragmentAddNoteBinding
+import id.rllyhz.meapp.databinding.FragmentAddOrUpdateNoteBinding
 import id.rllyhz.meapp.ui.activities.adding_updating_item.AddOrUpdateItemActivity
 
 class AddNoteFragment : Fragment() {
-    private var _binding: FragmentAddNoteBinding? = null
-    private val binding: FragmentAddNoteBinding get() = _binding!!
+    private var _binding: FragmentAddOrUpdateNoteBinding? = null
+    private val binding: FragmentAddOrUpdateNoteBinding get() = _binding!!
 
     private var titleTextWatcher: TextWatcher? = null
     private var contentTextWatcher: TextWatcher? = null
@@ -93,7 +93,7 @@ class AddNoteFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentAddNoteBinding.inflate(inflater, container, false)
+        _binding = FragmentAddOrUpdateNoteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -106,23 +106,23 @@ class AddNoteFragment : Fragment() {
         super.onDestroyView()
 
         with(binding) {
-            etTitleAddingNote.removeTextChangedListener(titleTextWatcher)
-            etContentAddingNote.removeTextChangedListener(contentTextWatcher)
-            spinnerLevelOfImportanceAddingNote.adapter = null
-            spinnerLevelOfImportanceAddingNote.onItemSelectedListener = null
+            etTitleAddingOrUpdatingNote.removeTextChangedListener(titleTextWatcher)
+            etContentAddingOrUpdatingNote.removeTextChangedListener(contentTextWatcher)
+            spinnerLevelOfImportanceAddingOrUpdatingNote.adapter = null
+            spinnerLevelOfImportanceAddingOrUpdatingNote.onItemSelectedListener = null
         }
     }
 
     private fun setupUI() {
         binding.apply {
-            etTitleAddingNote.addTextChangedListener(titleTextWatcher)
-            etContentAddingNote.addTextChangedListener(contentTextWatcher)
+            etTitleAddingOrUpdatingNote.addTextChangedListener(titleTextWatcher)
+            etContentAddingOrUpdatingNote.addTextChangedListener(contentTextWatcher)
 
-            btnGoBackAddingNote.setOnClickListener {
+            btnGoBackAddingOrUpdatingNote.setOnClickListener {
                 requireActivity().finish()
             }
 
-            btnSaveAddingNote.setOnClickListener {
+            btnSaveAddingOrUpdatingNote.setOnClickListener {
                 Toast.makeText(
                     requireContext(),
                     getString(R.string.successfully_added_note_message),
@@ -131,15 +131,15 @@ class AddNoteFragment : Fragment() {
                 requireActivity().finish()
             }
 
-            with(spinnerLevelOfImportanceAddingNote) {
+            with(spinnerLevelOfImportanceAddingOrUpdatingNote) {
                 onItemSelectedListener = spinnerItemSelectedListener
                 adapter = spinnerAdapter
                 setSelection(1)
             }
 
             activity?.sharedViewModel?.apply {
-                etTitleAddingNote.setText(titleText.value)
-                etContentAddingNote.setText(contentText.value)
+                etTitleAddingOrUpdatingNote.setText(titleText.value)
+                etContentAddingOrUpdatingNote.setText(contentText.value)
             }
         }
     }

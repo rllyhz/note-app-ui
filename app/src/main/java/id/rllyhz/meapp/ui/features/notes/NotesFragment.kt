@@ -33,6 +33,7 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
 
     private val viewModel: NotesViewModel by viewModels()
     private var notesAdapter: NotesAdapter? = null
+    private lateinit var activeNote: Note
 
     private var bottomSheetBehaviorNotes: BottomSheetBehavior<ConstraintLayout>? = null
 
@@ -139,6 +140,16 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 deletingAlert?.show()
                 bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
             }
+            btnEditBottomSheetNotes.setOnClickListener {
+                Intent(requireActivity(), AddOrUpdateItemActivity::class.java).also {
+                    it.putExtra(
+                        AddOrUpdateItemActivity.DESTINATION_PAGE,
+                        AddOrUpdateItemActivity.UPDATING_NOTES_PAGE
+                    )
+                    it.putExtra(AddOrUpdateItemActivity.DATA_KEY, activeNote)
+                    startActivity(it)
+                }
+            }
 
             svNotes.startAnimation(
                 AnimationUtils.loadAnimation(
@@ -187,6 +198,10 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
             }
 
             with(viewModel) {
+                selectedNote.observe(requireActivity()) {
+                    activeNote = it
+                }
+
                 allNotes.observe(requireActivity()) {
                     notesAdapter?.submitList(it)
                 }

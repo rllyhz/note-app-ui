@@ -1,6 +1,7 @@
 package id.rllyhz.meapp.ui.activities.adding_updating_item
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -20,7 +21,7 @@ class AddOrUpdateItemActivity : AppCompatActivity(), DatePickerFragment.DialogDa
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_item)
+        setContentView(R.layout.activity_add_or_update_item)
 
         intent.getStringExtra(DESTINATION_PAGE)?.let {
             when (it) {
@@ -37,6 +38,11 @@ class AddOrUpdateItemActivity : AppCompatActivity(), DatePickerFragment.DialogDa
                 else -> Unit
             }
         }
+
+        val data = intent.extras
+        val note = data?.getParcelable<Note>(DATA_KEY)
+
+        Log.d("TAG", note.toString())
 
         if (pageNotFound) {
             // should alert a warning message!
