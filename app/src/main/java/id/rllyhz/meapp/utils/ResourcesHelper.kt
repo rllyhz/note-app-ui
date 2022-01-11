@@ -1,7 +1,9 @@
 package id.rllyhz.meapp.utils
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.util.TypedValue
 import androidx.annotation.ArrayRes
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
@@ -48,6 +50,16 @@ object ResourcesHelper {
     fun getRandomColor(context: Context): Int {
         randomizeColor()
         return ContextCompat.getColor(context, color)
+    }
+
+    @SuppressLint("ResourceType")
+    @ColorInt
+    fun getColorFromAttr(context: Context, resId: Int): Int {
+        val typedValue = TypedValue()
+        val currTheme = context.theme
+        currTheme.resolveAttribute(resId, typedValue, true)
+
+        return typedValue.data
     }
 
     private fun getDrawable(context: Context, @DrawableRes drawableId: Int): Drawable? =

@@ -78,7 +78,7 @@ class SplashFragment : Fragment() {
                 activity.getAppPreferences().observe(requireActivity()) {
                     tvSplash.text =
                         "-> ${it.username} \n-> ${it.userJobName} \n-> ${it.shouldShowOnBoarding}"
-                    shouldRemove = it.shouldShowOnBoarding
+                    shouldRemove = !it.shouldShowOnBoarding
                 }
             }
         }
