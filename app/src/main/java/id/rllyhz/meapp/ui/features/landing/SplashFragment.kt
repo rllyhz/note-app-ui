@@ -1,4 +1,4 @@
-package id.rllyhz.meapp.ui.features.splash
+package id.rllyhz.meapp.ui.features.landing
 
 import android.annotation.SuppressLint
 import android.content.Intent

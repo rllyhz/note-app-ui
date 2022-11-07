@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
-import id.rllyhz.meapp.ui.features.splash.SplashFragment
+import id.rllyhz.meapp.ui.features.landing.SplashFragment
 import id.rllyhz.meapp.utils.ResourcesHelper
 import id.rllyhz.meapp.utils.setStatusBarColor
 
