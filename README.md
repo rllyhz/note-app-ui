@@ -1,7 +1,5 @@
 # Me App
 
-### Preview
-
 <h3 align="center">
   Previews
 </h3>
