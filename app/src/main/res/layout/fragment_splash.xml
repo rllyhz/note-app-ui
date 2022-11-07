@@ -5,43 +5,16 @@
     android:layout_height="match_parent"
     android:background="?attr/colorPrimary">
 
-    <ImageView
-        android:id="@+id/iv_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:contentDescription="@string/headline_splash"
-        android:src="@drawable/illustration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/tv_headline_splash"
+        android:id="@+id/tv_headline_first_landing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/lato_bold"
-        android:text="@string/headline_splash"
+        android:text="@string/splashscreen_text"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@id/iv_splash"
-        app:layout_constraintStart_toStartOf="@id/iv_splash"
-        app:layout_constraintTop_toBottomOf="@id/iv_splash" />
-
-    <Button
-        android:id="@+id/btn_get_started_splash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/lato_regular"
-        android:text="@string/btn_splash_get_started"
-        android:textAllCaps="false"
-        android:textColor="?attr/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_headline_splash" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

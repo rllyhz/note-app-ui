@@ -1,73 +1,76 @@
 <resources>
-   <string name="app_name">Me App</string>
-   <string name="bottom_nav_menu_notes">Notes</string>
-   <string name="bottom_nav_menu_reminders">Reminders</string>
-   <string name="bottom_nav_menu_profile">Profile</string>
+    <string name="app_name">Me App</string>
+    <string name="bottom_nav_menu_notes">Notes</string>
+    <string name="bottom_nav_menu_reminders">Reminders</string>
+    <string name="bottom_nav_menu_profile">Profile</string>
 
-   <string name="action_bar_title_notes">Notes</string>
-   <string name="action_bar_title_reminders">Reminders</string>
-   <string name="action_bar_title_settings">Settings</string>
-   <string name="action_bar_add_note">Create Note</string>
-   <string name="action_bar_add_reminder">Schedule Reminder</string>
+    <string name="action_bar_title_notes">Notes</string>
+    <string name="action_bar_title_reminders">Reminders</string>
+    <string name="action_bar_title_settings">Settings</string>
+    <string name="action_bar_add_note">Create Note</string>
+    <string name="action_bar_add_reminder">Schedule Reminder</string>
 
-   <string name="add_reminders_tooltip_text">Add reminders</string>
-   <string name="add_notes_tooltip_text">Add notes</string>
-   <string name="go_back_button_tooltip_text">Go Back button</string>
-   <string name="save_note_tooltip_text">Create Note button</string>
-   <string name="save_reminder_tooltip_text">Schedule Reminder button</string>
-   <string name="close_bottom_sheet_button_tooltip_text">Close Bottom Sheet button</string>
-   <string name="delete_bottom_sheet_button_tooltip_text">Delete Item Bottom Sheet button</string>
-   <string name="edit_bottom_sheet_button_tooltip_text">Edit Item Bottom Sheet button</string>
+    <string name="add_reminders_tooltip_text">Add reminders</string>
+    <string name="add_notes_tooltip_text">Add notes</string>
+    <string name="go_back_button_tooltip_text">Go Back button</string>
+    <string name="save_note_tooltip_text">Create Note button</string>
+    <string name="save_reminder_tooltip_text">Schedule Reminder button</string>
+    <string name="close_bottom_sheet_button_tooltip_text">Close Bottom Sheet button</string>
+    <string name="delete_bottom_sheet_button_tooltip_text">Delete Item Bottom Sheet button</string>
+    <string name="edit_bottom_sheet_button_tooltip_text">Edit Item Bottom Sheet button</string>
 
-   <string name="reminders_pinned_label">Pinned</string>
-   <string name="reminders_upcoming_label">Upcoming</string>
+    <string name="reminders_pinned_label">Pinned</string>
+    <string name="reminders_upcoming_label">Upcoming</string>
 
-   <string name="content_hint">Typing…</string>
-   <string name="title_hint">Give it a Title</string>
-   <string name="description_hint">Set description</string>
-   <string name="daily_schedule_label">Daily Schedules</string>
-   <string name="daily_schedule_description_label">Will be notified every day at the given time.</string>
-   <string name="pick_a_time_label">Pick a time</string>
-   <string name="schedule_once_on_label">Will be notified once on </string>
-   <string name="schedule_once_on_description_label">Reminder will be notified once at the specific time you set</string>
-   <string name="pick_a_date_label">Pick a date</string>
-   <string name="level_of_importance_label">Level of importance</string>
-   <string name="level_of_importance_description_label">How important is it?</string>
+    <string name="content_hint">Typing…</string>
+    <string name="title_hint">Give it a Title</string>
+    <string name="description_hint">Set description</string>
+    <string name="daily_schedule_label">Daily Schedules</string>
+    <string name="daily_schedule_description_label">Will be notified every day at the given time.</string>
+    <string name="pick_a_time_label">Pick a time</string>
+    <string name="schedule_once_on_label">Will be notified once on </string>
+    <string name="schedule_once_on_description_label">Reminder will be notified once at the specific time you set</string>
+    <string name="pick_a_date_label">Pick a date</string>
+    <string name="level_of_importance_label">Level of importance</string>
+    <string name="level_of_importance_description_label">How important is it?</string>
 
-   <string name="background_content_description">Background Content Description</string>
-   <string name="btn_delete_label">Delete</string>
-   <string name="content_description_add_reminders_button">Add Reminders Button</string>
-   <string name="dialog_title_deleting_notes">Deleting Note</string>
-   <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
-   <string name="negative_button_label_deleting_notes">Cancel</string>
-   <string name="positive_button_label_deleting_notes">Yes</string>
-   <string name="level_of_importance_label_bottom_sheet_notes">Level</string>
-   <string name="updated_at_label_bottom_sheet_notes">Updated at</string>
+    <string name="background_content_description">Background Content Description</string>
+    <string name="btn_delete_label">Delete</string>
+    <string name="content_description_add_reminders_button">Add Reminders Button</string>
+    <string name="dialog_title_deleting_notes">Deleting Note</string>
+    <string name="dialog_message_deleting_notes">Are you sure want to delete this item?</string>
+    <string name="negative_button_label_deleting_notes">Cancel</string>
+    <string name="positive_button_label_deleting_notes">Yes</string>
+    <string name="level_of_importance_label_bottom_sheet_notes">Level</string>
+    <string name="updated_at_label_bottom_sheet_notes">Updated at</string>
 
-   <string-array name="level_of_importance_keys">
-      <item>Less Important</item>
-      <item>Normal</item>
-      <item>Important</item>
-   </string-array>
+    <string-array name="level_of_importance_keys">
+        <item>Less Important</item>
+        <item>Normal</item>
+        <item>Important</item>
+    </string-array>
 
-   <integer-array name="level_of_importance_values">
-      <item>0</item>
-      <item>1</item>
-      <item>2</item>
-   </integer-array>
+    <integer-array name="level_of_importance_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </integer-array>
 
-   <string name="time_dummy_data">Sat, 12 2021 —:—</string>
-   <string name="note_title_dummy_data">Note Test</string>
-   <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
-   <string name="profile_job_dummy_data">Mobile Engineer</string>
-   <string name="level_of_importance_dummy_data">Normal</string>
-   <string name="date_dummy_data">Feb 21, 2021</string>
+    <string name="time_dummy_data">Sat, 12 2021 —:—</string>
+    <string name="note_title_dummy_data">Note Test</string>
+    <string name="profile_name_dummy_data">Rully Ihza Mahendra</string>
+    <string name="profile_job_dummy_data">Mobile Engineer</string>
+    <string name="level_of_importance_dummy_data">Normal</string>
+    <string name="date_dummy_data">Feb 21, 2021</string>
 
-   <string name="successfully_added_note_message">Note successfully added</string>
-   <string name="failed_to_add_note_message">Note successfully added</string>
-   <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
-   <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
-    <string name="headline_splash">Make your life easier</string>
-   <string name="btn_splash_get_started">Get Started</string>
+    <string name="successfully_added_note_message">Note successfully added</string>
+    <string name="failed_to_add_note_message">Note successfully added</string>
+    <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
+    <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
+    <string name="btn_first_landing_next">Next</string>
+    <string name="headline_first_landing">Make Your Life Easier</string>
+    <string name="btn_second_landing_next">Get Started</string>
+    <string name="headline_second_landing">Keep Your Mindful Thoughts Safely</string>
+    <string name="splashscreen_text">SplashScreen</string>
 
 </resources>

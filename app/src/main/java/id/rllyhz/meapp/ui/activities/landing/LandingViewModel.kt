@@ -20,7 +20,7 @@ import java.io.IOException
 class LandingViewModel : ViewModel() {
     private val defaultShowOnBoardingPageValue = true
 
-    fun getAppPreferences(context: Context): LiveData<AppPreferences> =
+    private fun getAppPreferences(context: Context): LiveData<AppPreferences> =
         context.dataStore.data
             .catch { exception ->
                 if (exception is IOException)
@@ -58,14 +58,14 @@ class LandingViewModel : ViewModel() {
             }
         }
 
-    fun setShouldShowOnBoardingPage(context: Context, should: Boolean) =
+    fun shouldShowOnBoardingPages(context: Context, should: Boolean) =
         viewModelScope.launch(Dispatchers.IO) {
             context.dataStore.edit { prefs ->
                 prefs[PreferencesKeys.SHOW_ON_BOARDING] = should
             }
         }
 
-    fun shouldShownOnBoardingPage(context: Context): LiveData<Boolean> =
+    fun shouldShowOnBoardingPages(context: Context): LiveData<Boolean> =
         context.dataStore.data
             .catch { exception ->
                 if (exception is IOException)
