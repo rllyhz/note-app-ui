@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_container_notes"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_bottom_sheet_detail"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="48dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <ImageView
+        android:id="@+id/btn_close_bottom_sheet_notes"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/ripple_effects"
+        android:contentDescription="@string/close_bottom_sheet_button_tooltip_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_close"
+        app:tint="?attr/colorPrimary" />
+
+    <ImageView
+        android:id="@+id/btn_edit_bottom_sheet_notes"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/bg_outlined_button_secondary"
+        android:contentDescription="@string/edit_bottom_sheet_button_tooltip_text"
+        android:foreground="@drawable/ripple_effects"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_close_bottom_sheet_notes"
+        app:layout_constraintRight_toLeftOf="@id/btn_delete_bottom_sheet_notes"
+        app:layout_constraintTop_toTopOf="@+id/btn_close_bottom_sheet_notes"
+        app:srcCompat="@drawable/icon_edit"
+        app:tint="@color/grey" />
+
+    <ImageView
+        android:id="@+id/btn_delete_bottom_sheet_notes"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@drawable/bg_outlined_button_secondary"
+        android:contentDescription="@string/delete_bottom_sheet_button_tooltip_text"
+        android:foreground="@drawable/ripple_effects"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_close_bottom_sheet_notes"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_close_bottom_sheet_notes"
+        app:srcCompat="@drawable/icon_trash"
+        app:tint="@color/grey" />
+
+    <TextView
+        android:id="@+id/tv_note_title_bottom_sheet_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/note_title_dummy_data"
+        android:textAppearance="@style/TextStyle.Body.Title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_close_bottom_sheet_notes" />
+
+    <TextView
+        android:id="@+id/tv_note_content_bottom_sheet_notes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/note_title_dummy_data"
+        android:textAppearance="@style/TextStyle.Body.Content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_note_title_bottom_sheet_notes" />
+
+    <View
+        android:id="@+id/view_constraint_of_contents_bottom_sheet_notes"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/grey"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_note_content_bottom_sheet_notes" />
+
+    <TextView
+        android:id="@+id/tv_note_level_of_importance_label_bottom_sheet_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/level_of_importance_label_bottom_sheet_notes"
+        android:textAppearance="@style/TextStyle.Body.SubContent.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_constraint_of_contents_bottom_sheet_notes" />
+
+    <TextView
+        android:id="@+id/tv_note_level_of_importance_bottom_sheet_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/bg_badge"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="2dp"
+        android:text="@string/level_of_importance_dummy_data"
+        android:textAppearance="@style/TextStyle.Body.Badge"
+        android:textColor="@color/soft_black"
+        app:layout_constraintBottom_toBottomOf="@id/tv_note_level_of_importance_label_bottom_sheet_note"
+        app:layout_constraintStart_toEndOf="@id/tv_note_level_of_importance_label_bottom_sheet_note"
+        app:layout_constraintTop_toTopOf="@id/tv_note_level_of_importance_label_bottom_sheet_note" />
+
+    <TextView
+        android:id="@+id/tv_note_updated_at_label_bottom_sheet_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/updated_at_label_bottom_sheet_notes"
+        android:textAppearance="@style/TextStyle.Body.SubContent.Inverse"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_note_level_of_importance_label_bottom_sheet_note" />
+
+    <TextView
+        android:id="@+id/tv_note_updated_at_bottom_sheet_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:background="@drawable/bg_badge"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="2dp"
+        android:text="@string/date_dummy_data"
+        android:textAppearance="@style/TextStyle.Body.Badge"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/tv_note_updated_at_label_bottom_sheet_note"
+        app:layout_constraintStart_toEndOf="@id/tv_note_updated_at_label_bottom_sheet_note"
+        app:layout_constraintTop_toTopOf="@id/tv_note_updated_at_label_bottom_sheet_note" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

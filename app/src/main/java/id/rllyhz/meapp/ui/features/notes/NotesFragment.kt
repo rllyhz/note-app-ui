@@ -128,26 +128,29 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {}
             }
 
-            bottomSheetBehaviorNotes = BottomSheetBehavior.from(bottomSheetContainerNotes)
-            bottomSheetCallback?.let {
-                bottomSheetBehaviorNotes?.addBottomSheetCallback(it)
-            }
+            with(bottomSheetNotes) {
+                bottomSheetBehaviorNotes =
+                    BottomSheetBehavior.from(bottomSheetContainerNotes)
+                bottomSheetCallback?.let {
+                    bottomSheetBehaviorNotes?.addBottomSheetCallback(it)
+                }
 
-            btnCloseBottomSheetNotes.setOnClickListener {
-                bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
-            }
-            btnDeleteBottomSheetNotes.setOnClickListener {
-                deletingAlert?.show()
-                bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
-            }
-            btnEditBottomSheetNotes.setOnClickListener {
-                Intent(requireActivity(), AddOrUpdateItemActivity::class.java).also {
-                    it.putExtra(
-                        AddOrUpdateItemActivity.DESTINATION_PAGE,
-                        AddOrUpdateItemActivity.UPDATING_NOTES_PAGE
-                    )
-                    it.putExtra(AddOrUpdateItemActivity.DATA_KEY, activeNote)
-                    startActivity(it)
+                btnCloseBottomSheetNotes.setOnClickListener {
+                    bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
+                }
+                btnDeleteBottomSheetNotes.setOnClickListener {
+                    deletingAlert?.show()
+                    bottomSheetBehaviorNotes?.state = BottomSheetBehavior.STATE_COLLAPSED
+                }
+                btnEditBottomSheetNotes.setOnClickListener {
+                    Intent(requireActivity(), AddOrUpdateItemActivity::class.java).also {
+                        it.putExtra(
+                            AddOrUpdateItemActivity.DESTINATION_PAGE,
+                            AddOrUpdateItemActivity.UPDATING_NOTES_PAGE
+                        )
+                        it.putExtra(AddOrUpdateItemActivity.DATA_KEY, activeNote)
+                        startActivity(it)
+                    }
                 }
             }
 
@@ -194,7 +197,7 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
 
             getBgBadge()?.let {
                 it.setTint(ContextCompat.getColor(requireContext(), R.color.grey_3))
-                tvNoteUpdatedAtBottomSheetNote.background = it
+                bottomSheetNotes.tvNoteUpdatedAtBottomSheetNote.background = it
             }
 
             with(viewModel) {
@@ -207,13 +210,13 @@ class NotesFragment : Fragment(), NotesAdapter.NoteItemClickCallback {
                 }
 
                 selectedNote.observe(requireActivity()) { note ->
-                    tvNoteTitleBottomSheetNotes.text = note.title.capitalize()
-                    tvNoteContentBottomSheetNotes.text = note.content.capitalize()
-                    tvNoteLevelOfImportanceBottomSheetNote.background =
+                    bottomSheetNotes.tvNoteTitleBottomSheetNotes.text = note.title.capitalize()
+                    bottomSheetNotes.tvNoteContentBottomSheetNotes.text = note.content.capitalize()
+                    bottomSheetNotes.tvNoteLevelOfImportanceBottomSheetNote.background =
                         getBackgroundForLevelOfImportance(note.levelOfImportance)
-                    tvNoteLevelOfImportanceBottomSheetNote.text =
+                    bottomSheetNotes.tvNoteLevelOfImportanceBottomSheetNote.text =
                         getDescriptionForLevelOfImportanceIndex(note.levelOfImportance)
-                    tvNoteUpdatedAtBottomSheetNote.text = note.formattedUpdatedAt()
+                    bottomSheetNotes.tvNoteUpdatedAtBottomSheetNote.text = note.formattedUpdatedAt()
                 }
 
                 shouldLoadingState.asLiveData().observe(requireActivity()) {

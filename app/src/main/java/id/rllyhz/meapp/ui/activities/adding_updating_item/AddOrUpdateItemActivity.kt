@@ -3,24 +3,26 @@ package id.rllyhz.meapp.ui.activities.adding_updating_item
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.data.models.Note
 import id.rllyhz.meapp.data.models.Reminder
+import id.rllyhz.meapp.ui.base.BaseActivity
 import id.rllyhz.meapp.ui.features.add_note.AddNoteFragment
 import id.rllyhz.meapp.ui.features.add_reminder.AddReminderFragment
 import id.rllyhz.meapp.ui.features.picker.DatePickerFragment
 import id.rllyhz.meapp.ui.features.picker.TimePickerFragment
 import java.util.*
 
-class AddOrUpdateItemActivity : AppCompatActivity(), DatePickerFragment.DialogDateListener,
+class AddOrUpdateItemActivity : BaseActivity(), DatePickerFragment.DialogDateListener,
     TimePickerFragment.DialogTimeListener {
     val sharedViewModel: AddOrUpdateItemSharedViewModel by viewModels()
-    var pageNotFound: Boolean = true
+    private var pageNotFound: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setStatusBarTheme(true)
+
         setContentView(R.layout.activity_add_or_update_item)
 
         intent.getStringExtra(DESTINATION_PAGE)?.let {

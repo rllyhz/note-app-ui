@@ -5,18 +5,17 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.ui.activities.main.MainActivity
+import id.rllyhz.meapp.ui.base.BaseActivity
 import id.rllyhz.meapp.ui.features.landing.FirstLandingFragment
 import id.rllyhz.meapp.ui.features.landing.SecondLandingFragment
 import id.rllyhz.meapp.ui.features.landing.SplashFragment
 import id.rllyhz.meapp.utils.ResourcesHelper
 import id.rllyhz.meapp.utils.setStatusBarColor
 
-class LandingActivity : AppCompatActivity() {
+class LandingActivity : BaseActivity() {
     private var currentLandingIndex = 0
     private var shouldShowOnBoardingPages = true
 
@@ -24,7 +23,8 @@ class LandingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        setNoNightModeUI()
+        setStatusBarTheme(true)
 
         viewModel.shouldShowOnBoardingPages(this).observe(this) {
             shouldShowOnBoardingPages = it

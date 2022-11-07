@@ -1,23 +1,22 @@
 package id.rllyhz.meapp.ui.activities.main
 
 import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import id.rllyhz.meapp.R
 import id.rllyhz.meapp.databinding.ActivityMainBinding
+import id.rllyhz.meapp.ui.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        setStatusBarTheme(false)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
