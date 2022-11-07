@@ -1,4 +1,4 @@
-# Me App
+# NoteApp UI Sample
 
 <h3 align="center">
   Previews
