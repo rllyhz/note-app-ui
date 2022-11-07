@@ -67,5 +67,7 @@
    <string name="failed_to_add_note_message">Note successfully added</string>
    <string name="successfully_scheduled_reminder_message">Reminder successfully scheduled</string>
    <string name="failed_to_schedule_reminder_message">Failed to schedule Reminder</string>
+    <string name="headline_splash">Make your life easier</string>
+   <string name="btn_splash_get_started">Get Started</string>
 
 </resources>

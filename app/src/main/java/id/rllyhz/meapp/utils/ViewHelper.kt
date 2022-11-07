@@ -2,13 +2,16 @@ package id.rllyhz.meapp.utils
 
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import id.rllyhz.meapp.R
 
-fun SwipeRefreshLayout.show(state: Boolean) {
-    this.isRefreshing = state
+// Activity and Views
+fun AppCompatActivity.setStatusBarColor(@ColorInt color: Int) {
+    window.statusBarColor = color
 }
 
 fun View.lock() {
@@ -40,4 +43,10 @@ fun View.hide() {
 
 fun View.show() {
     visibility = View.VISIBLE
+}
+
+
+// UIs
+fun SwipeRefreshLayout.show(state: Boolean) {
+    this.isRefreshing = state
 }
