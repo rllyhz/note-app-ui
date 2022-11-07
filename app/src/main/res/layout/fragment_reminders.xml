@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-   xmlns:app="http://schemas.android.com/apk/res-auto"
-   xmlns:tools="http://schemas.android.com/tools"
-   android:layout_width="match_parent"
-   android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-   <LinearLayout
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_heading_reminders"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="24dp"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-      <RelativeLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:layout_marginHorizontal="8dp"
-         android:layout_marginTop="12dp">
-
-         <TextView
+        <TextView
             android:id="@+id/tv_reminders_heading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
             android:text="@string/action_bar_title_reminders"
             android:textAppearance="@style/TextStyle.Heading" />
 
-         <ImageView
+        <ImageView
             android:id="@+id/btn_add_reminder"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:background="@drawable/bg_outlined_button_primary"
             android:contentDescription="@string/content_description_add_reminders_button"
             android:foreground="@drawable/ripple_effects"
@@ -40,49 +38,64 @@
             app:srcCompat="@drawable/icon_add"
             app:tint="?attr/colorPrimary" />
 
-      </RelativeLayout>
+    </RelativeLayout>
 
-      <TextView
-         android:id="@+id/tv_reminders_pinned"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginStart="8dp"
-         android:layout_marginTop="16dp"
-         android:text="@string/reminders_pinned_label"
-         android:textAppearance="@style/TextStyle.SubHeading" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_heading_reminders">
 
-      <androidx.recyclerview.widget.RecyclerView
-         android:id="@+id/rv_reminders_pinned"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:clipToPadding="false"
-         android:orientation="horizontal"
-         android:paddingTop="12dp"
-         tools:itemCount="12"
-         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-         tools:listitem="@layout/item_reminders_horizontal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-      <TextView
-         android:id="@+id/tv_reminders_upcoming"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_marginStart="8dp"
-         android:layout_marginTop="24dp"
-         android:text="@string/reminders_upcoming_label"
-         android:textAppearance="@style/TextStyle.SubHeading" />
+            <TextView
+                android:id="@+id/tv_reminders_pinned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/reminders_pinned_label"
+                android:textAppearance="@style/TextStyle.SubHeading" />
 
-      <androidx.recyclerview.widget.RecyclerView
-         android:id="@+id/rv_reminders_upcoming"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:clipToPadding="false"
-         android:orientation="vertical"
-         android:paddingTop="12dp"
-         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-         tools:itemCount="12"
-         tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-         tools:listitem="@layout/item_reminders" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_reminders_pinned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingTop="12dp"
+                tools:itemCount="12"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_reminders_horizontal" />
 
-   </LinearLayout>
+            <TextView
+                android:id="@+id/tv_reminders_upcoming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/reminders_upcoming_label"
+                android:textAppearance="@style/TextStyle.SubHeading" />
 
-</androidx.core.widget.NestedScrollView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_reminders_upcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:itemCount="12"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_reminders" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
